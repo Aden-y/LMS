@@ -7,14 +7,14 @@ import java.sql.Date;
 public class Borrower {
     private int BorrowerId, BookId;
     private Date BorrowedFrom, BorrowedTo, ReturnDate;
-    private String Issuer;
+    private int Issuer;
 
     public Borrower(int borrowerId,
                     int bookId,
                     Date borrowedFrom,
                     Date borrowedTo,
                     Date returnDate,
-                    String issuer
+                    int issuer
     ) {
         BorrowerId = borrowerId;
         BookId = bookId;
@@ -28,7 +28,7 @@ public class Borrower {
                     int bookId,
                     Date borrowedFrom,
                     Date borrowedTo,
-                    String issuer
+                    int issuer
     ) {
         BorrowerId = borrowerId;
         BookId = bookId;
@@ -77,11 +77,11 @@ public class Borrower {
         ReturnDate = returnDate;
     }
 
-    public String getIssuer() {
+    public int getIssuer() {
         return Issuer;
     }
 
-    public void setIssuer(String issuer) {
+    public void setIssuer(int issuer) {
         Issuer = issuer;
     }
 
@@ -92,4 +92,6 @@ public class Borrower {
     public String getBorrowedFromString() {
         return DateService.toString(BorrowedTo);
     }
+
+
 }

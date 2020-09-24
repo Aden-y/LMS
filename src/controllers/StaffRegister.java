@@ -19,10 +19,10 @@ public class StaffRegister extends HttpServlet {
                lastName  = request.getParameter("LastName"),
                phone  = request.getParameter("Phone"),
                email = request.getParameter("Email"),
-               userId = request.getParameter("UserId"),
+               //userId = request.getParameter("UserId"),
                password = PasswordGeneratorService.generate(6);
        int campusNo = Integer.parseInt(request.getParameter("CampusNo"));
-        StaffDAO.create(new  Staff( userId, firstName, lastName, phone, email, password, false, campusNo));
+        int userId = StaffDAO.create(new  Staff(firstName, lastName, phone, email, password, false, campusNo));
         String subject = "Staff registration at Library Management System",
                 message =  "You have been successfully registered as a Staff.\n" +
                         "Password : "+password+"\n" +

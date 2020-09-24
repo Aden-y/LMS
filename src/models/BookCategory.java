@@ -4,13 +4,13 @@ public class BookCategory {
     private int CategoryId;
     private String CategoryName ;
 
-    private BookCategory(String categoryName) {
-        this.CategoryName = categoryName;
+    public BookCategory(String categoryName) {
+        CategoryName = categoryName;
     }
 
     public BookCategory(int categoryId, String categoryName) {
-        this.CategoryId = categoryId;
-        this.CategoryName = categoryName;
+        CategoryId = categoryId;
+        CategoryName = categoryName;
     }
 
     public int getCategoryId() {

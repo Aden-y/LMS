@@ -79,18 +79,26 @@
             <label>Categories</label>
             <div>
                 <div class="chip">Example Category</div>
-                <div class="input-field">
-                    <input class="validate" name="CategoryName" id="CategoryName" required placeholder="Category name">
-                    <button class="btn-small pink darken-4">add category</button>
-                </div>
+                <form action="new-book" method="post">
+                    <div class="input-field">
+                        <input class="validate" name="CategoryName" id="CategoryName" required placeholder="Category name">
+                    </div>
+                    <div class="input-field">
+                        <input  type="submit" class="btn-small pink darken-4" name="NewCategory" value="add category">
+                    </div>
+                </form>
             </div>
             <label>Bindings</label>
             <div>
                 <div class="chip">Example Binding</div>
-                <div class="input-field">
-                    <input class="validate" name="BindingName" id="BindingName" required placeholder="Binding name">
-                    <button class="btn-small pink darken-4">create binding</button>
-                </div>
+                <form action="new-book" method="post">
+                    <div class="input-field">
+                        <input class="validate" name="BindingName" id="BindingName" required placeholder="Binding Name">
+                    </div>
+                    <div class="input-field">
+                        <input type="submit" class="btn-small pink darken-4" name="NewBinding" value="Create Binding">
+                    </div>
+                </form>
             </div>
         </div>
     </div>

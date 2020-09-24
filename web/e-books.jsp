@@ -13,7 +13,7 @@
 <div>
     <h4 class="title color-primary">E-books</h4>
     <div class="row">
-        <div class="input-field col s6">
+        <div class="input-field col s12 l6 m6">
             <select>
                 <option value="" disabled selected>Choose category</option>
                 <option value="1">Option 1</option>
@@ -22,7 +22,7 @@
             </select>
             <label>Filter by category</label>
         </div>
-        <div class="input-field col s6">
+        <div class="input-field col s12 l6 m6">
             <form method="post" action="e-books.jsp">
                 <input type="search" placeholder="Search by title">
             </form>

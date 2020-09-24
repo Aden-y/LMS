@@ -66,10 +66,14 @@
             <label>Categories</label>
             <div>
                 <div class="chip">Example Category</div>
-                <div class="input-field">
-                    <input class="validate" name="CategoryName" id="CategoryName" required placeholder="Category name">
-                    <button class="btn-small pink darken-4">add category</button>
-                </div>
+                <form action="new-e-book" method="post">
+                    <div class="input-field">
+                        <input class="validate" name="CategoryName" id="CategoryName" required placeholder="Category name">
+                    </div>
+                    <div class="input-field">
+                        <input  type="submit" class="btn-small pink darken-4" name="NewCategory" value="add category">
+                    </div>
+                </form>
             </div>
         </div>
     </div>

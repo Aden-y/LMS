@@ -10,7 +10,7 @@ create table if not exists Student (
     Email varchar (100) not null ,
     Sex varchar (20),
     DateOfBirth date not null ,
-    BorrowerId bigint auto_increment not null,
+    BorrowerId int auto_increment not null,
     CampusNo int not null ,
     Department varchar(50) not null ,
     Password varchar (50) not null,
@@ -29,7 +29,7 @@ create table if not exists  Professor(
 );
 
 create table if not exists Staff (
-    UserId varchar (15) primary  key not null ,
+    UserId int  primary  key  auto_increment not null ,
     FirstName varchar (50) not null ,
     LastName varchar (50) not null ,
     Phone varchar (50) not null ,
@@ -75,7 +75,7 @@ create table if not exists Book(
 );
 
 create table if not exists Borrower(
-    BorrowerId bigint primary key not null ,
+    BorrowerId int primary key not null ,
     BookId int not null,
     BorrowedFrom date not null ,
     BorrowedTo date not null,
@@ -87,7 +87,7 @@ create table if not exists Borrower(
 );
 
 create table if not exists Billing(
-    BorrowerId bigint primary key not null ,
+    BorrowerId int primary key not null ,
     Days int not null default 1,
     TotalAmount double not null default 10.0,
     foreign key (BorrowerId) references Borrower(BorrowerId)
@@ -103,4 +103,11 @@ create table if not exists EBook(
     FilePath varchar (255) not  null unique  key
 );
 
+create table if not exists BookRequest(
+    RequestId int not null  primary key auto_increment,
+    BorrowerId int not null ,
+    ISBNCode int not null ,
+    foreign key (BorrowerId) references Borrower(BorrowerId),
+    foreign key (ISBNCode) references Book(ISBNCode)
+);
 

@@ -1,6 +1,7 @@
 package dao;
 
 import data.DatabaseAccess;
+import models.Book;
 import models.Borrower;
 import services.MailerService;
 
@@ -19,7 +20,7 @@ public class BorrowerDAO {
                         resultSet.getDate("BorrowedFrom"),
                         resultSet.getDate("BorrowedTo"),
                         resultSet.getDate("ReturnDate"),
-                        resultSet.getString("Issuer")
+                        resultSet.getInt("Issuer")
                 );
             }
         } catch (SQLException e) {
@@ -38,7 +39,7 @@ public class BorrowerDAO {
                         resultSet.getDate("BorrowedFrom"),
                         resultSet.getDate("BorrowedTo"),
                         resultSet.getDate("ReturnDate"),
-                        resultSet.getString("Issuer")
+                        resultSet.getInt("Issuer")
                 ));
             }
         } catch (SQLException e) {
@@ -54,6 +55,9 @@ public class BorrowerDAO {
                 "'"+borrower.getBorrowedToString()+"', " +
                 "'"+borrower.getIssuer()+"')";
         DatabaseAccess.executeUpdate(sql);
+        Book book = BookDAO.get(borrower.getBookId());
+        book.borrow();
+        BookDAO.updateBorrowed(book);
     }
 
     public static List<Borrower> all() {
@@ -71,8 +75,9 @@ public class BorrowerDAO {
 
     }
 
-
-
+    public static Borrower get(int borrowerId) {
+        return create(DatabaseAccess.executeQuery("select * from Borrower where BorrowerId = "+borrowerId));
+    }
 
 
 }

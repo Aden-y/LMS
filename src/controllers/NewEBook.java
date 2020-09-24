@@ -1,6 +1,8 @@
 package controllers;
 
+import dao.BookCategoryDAO;
 import dao.EBookDAO;
+import models.BookCategory;
 import models.EBook;
 
 import javax.servlet.ServletException;
@@ -13,14 +15,12 @@ import java.io.IOException;
 @WebServlet(name = "NewEBook", urlPatterns = {"/new-e-book"})
 public class NewEBook extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-       /* int categoryId,
-        int publicationYear,
-        String title,
-        String language,
-        String author,
-        String filePath
-
-        */
+        if (request.getParameter("NewCategory") != null) {
+            String categoryName = request.getParameter("CategoryName").trim();
+            BookCategoryDAO.create(new BookCategory(categoryName));
+            response.sendRedirect("new-e-book");
+            return;
+        }
 
        int categoryId = Integer.parseInt(request.getParameter("CategoryId")),
                publicationYear = Integer.parseInt(request.getParameter("PublicationYear"));

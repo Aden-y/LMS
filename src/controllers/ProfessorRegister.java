@@ -25,7 +25,6 @@ public class ProfessorRegister extends HttpServlet {
                 lastName = request.getParameter("LastName"),
                 phone = request.getParameter("Phone"),
                 email = request.getParameter("Email"),
-                sex = request.getParameter("Sex"),
                 department = request.getParameter("Department"),
                 password = PasswordGeneratorService.generate(6);
         int employmentYear = Integer.parseInt(request.getParameter("EmploymentYear"));

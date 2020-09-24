@@ -1,11 +1,21 @@
 package models;
 
 public class Staff {
-    private String UserId, FirstName , LastName ,Phone ,Email , Password;
+    private String  FirstName , LastName ,Phone ,Email , Password;
     private boolean IsAdmin ;
-    private int CampusNo;
+    private int CampusNo, UserId;
 
-    public Staff(String userId,
+    public Staff(String firstName, String lastName, String phone, String email, String password, boolean isAdmin, int campusNo) {
+        FirstName = firstName;
+        LastName = lastName;
+        Phone = phone;
+        Email = email;
+        Password = password;
+        IsAdmin = isAdmin;
+        CampusNo = campusNo;
+    }
+
+    public Staff(int userId,
                  String firstName,
                  String lastName,
                  String phone,
@@ -24,11 +34,11 @@ public class Staff {
         CampusNo = campusNo;
     }
 
-    public String getUserId() {
+    public int getUserId() {
         return UserId;
     }
 
-    public void setUserId(String userId) {
+    public void setUserId(int userId) {
         UserId = userId;
     }
 

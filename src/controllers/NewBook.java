@@ -1,7 +1,11 @@
 package controllers;
 
+import dao.BindingDAO;
+import dao.BookCategoryDAO;
 import dao.BookDAO;
+import models.Binding;
 import models.Book;
+import models.BookCategory;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,6 +17,21 @@ import java.io.IOException;
 @WebServlet(name = "NewBook", urlPatterns = {"/new-book"})
 public class NewBook extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        if (request.getParameter("NewCategory") != null) {
+            String categoryName = request.getParameter("CategoryName").trim();
+            BookCategoryDAO.create(new BookCategory(categoryName));
+            response.sendRedirect("new-book");
+            return;
+        }
+
+
+        if (request.getParameter("NewBinding") != null) {
+            String bindingName = request.getParameter("BindingName").trim();
+            BindingDAO.create(new Binding(bindingName));
+            response.sendRedirect("new-book");
+            return;
+        }
+
         int bindingId = Integer.parseInt(request.getParameter("BindingId")),
                 copiesActual = Integer.parseInt(request.getParameter("CopiesActual")),
                 categoryId = Integer.parseInt(request.getParameter("CategoryId")),

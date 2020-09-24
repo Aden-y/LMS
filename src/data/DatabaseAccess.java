@@ -42,4 +42,19 @@ public class DatabaseAccess {
             e.printStackTrace();
         }
     }
+
+    public static int getLastInsertedIndex(String sql) {
+        Connection connection = connect();
+        try {
+            Statement statement = connection.createStatement();
+            statement.executeUpdate(sql, Statement.RETURN_GENERATED_KEYS);
+            ResultSet resultSet = statement.getGeneratedKeys();
+            if(resultSet.next()) {
+                return (int) resultSet.getLong(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
 }

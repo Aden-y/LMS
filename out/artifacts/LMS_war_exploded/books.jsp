@@ -13,7 +13,7 @@
 <div>
     <h4 class="title color-primary">Library Books</h4>
     <div class="row">
-        <div class="input-field col s4">
+        <div class="input-field col l4 s12 m4">
             <select>
                 <option value="" disabled selected>Select Campus</option>
                 <option value="1">Option 1</option>
@@ -22,7 +22,7 @@
             </select>
             <label>Filter by  campus</label>
         </div>
-        <div class="input-field col s4">
+        <div class="input-field col l4 s12 m4">
             <select>
                 <option value="" disabled selected>Choose category</option>
                 <option value="1">Option 1</option>
@@ -31,7 +31,7 @@
             </select>
             <label>Filter by category</label>
         </div>
-        <div class="input-field col s4">
+        <div class="input-field col l4 s12 m4">
             <form method="post" action="books.jsp">
                 <input type="search" placeholder="Search by title">
             </form>

@@ -13,7 +13,7 @@ public class StaffDAO {
         try {
             if (resultSet.next()) {
                 return  new Staff(
-                        resultSet.getString("UserId"),
+                        resultSet.getInt("UserId"),
                         resultSet.getString("FirstName"),
                         resultSet.getString("LastName"),
                         resultSet.getString("Phone"),
@@ -33,7 +33,7 @@ public class StaffDAO {
         List<Staff> staff = new ArrayList<>();
         try {
             while (resultSet.next()) {
-                staff.add(new Staff(resultSet.getString("UserId"),
+                staff.add(new Staff(resultSet.getInt("UserId"),
                         resultSet.getString("FirstName"),
                         resultSet.getString("LastName"),
                         resultSet.getString("Phone"),
@@ -49,7 +49,7 @@ public class StaffDAO {
         return staff;
     }
 
-    public static void create(Staff staff) {
+    public static int create(Staff staff) {
         String sql = "insert into Staff (UserId, FirstName, LastName, Phone, Email, Password, CampusNo) values (" +
                 "'"+staff.getUserId()+"', " +
                 "'"+staff.getFirstName()+"', " +
@@ -57,12 +57,10 @@ public class StaffDAO {
                 "'"+staff.getPhone()+"', " +
                 "'"+staff.getEmail()+"', " +
                 "'"+staff.getPassword()+"', " +staff.getCampusNo()+")";
-        DatabaseAccess.executeUpdate(sql);
+       return  DatabaseAccess.getLastInsertedIndex(sql);
     }
 
     public static Staff login(String userId, String password) {
         return create(DatabaseAccess.executeQuery("select * from Staff where UserId = '"+userId+"' and Password = '"+password+"'"));
     }
-
-
 }
