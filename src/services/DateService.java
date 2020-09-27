@@ -8,7 +8,7 @@ import java.util.Calendar;
 public class DateService {
     private static final int MAX_DAYS = 14;
     public static String toString(Date date) {
-        DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         return  df.format(date);
     }
 

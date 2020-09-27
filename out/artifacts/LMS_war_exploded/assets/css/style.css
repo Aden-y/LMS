@@ -52,8 +52,18 @@ body, html{
 .p-2{
     padding: 20px;
 }
+.alert{
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
 
 .w-100{
     width: 100%;
     text-align: center;
+}
+
+.d-none{
+    visibility: hidden ;
+    position: absolute;
 }

@@ -56,7 +56,7 @@ public class BookDAO {
 
     public static void create(Book book) {
         String sql = "insert into Book(BindingId, CopiesActual, CopiesAvailable, CategoryId, PublicationYear, ShelfId, Title, Author, Language) values(" +
-                ""+book.getISBNCode()+", "+book.getBindingId()+", "+book.getCopiesActual()+", "+book.getCopiesAvailable()+", "+book.getPublicationYear()+", "+book.getShelfId()+", " +
+                ""+book.getBindingId()+", "+book.getCopiesActual()+", "+book.getCopiesAvailable()+", "+book.getCategoryId()+", "+book.getPublicationYear()+", "+book.getShelfId()+", " +
                 "'"+book.getTitle()+"', " +
                 "'"+book.getAuthor()+"', " +
                 "'"+book.getLanguage()+"')";
@@ -84,5 +84,9 @@ public class BookDAO {
     public static void updateBorrowed(Book book ){
         String sql = "update Book set CopiesAvailable = "+book.getCopiesAvailable()+" where ISBNCode = "+book.getISBNCode();
         DatabaseAccess.executeUpdate(sql);
+    }
+
+    public static List<Book> findByShelf(int shelfId) {
+        return createList(DatabaseAccess.executeQuery("select * from Book where ShelfId = "+shelfId));
     }
 }

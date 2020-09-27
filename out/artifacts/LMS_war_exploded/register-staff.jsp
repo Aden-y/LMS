@@ -1,4 +1,5 @@
-<%--
+<%@ page import="java.util.List" %>
+<%@ page import="models.Campus" %><%--
   Created by IntelliJ IDEA.
   User: User
   Date: 9/23/2020
@@ -9,11 +10,28 @@
 <html>
 <jsp:include page="templates/header.html"/>
 <body>
+<%
+    List<Campus> campuses = (List<Campus>) request.getAttribute("campuses");
+    if (campuses == null) {
+        //request.getRequestDispatcher("register-staff").forward(request, response);
+        response.sendRedirect("register-staff");
+        return;
+    }
+%>
 <jsp:include page="templates/nav.jsp"/>
 <div class="p-2">
     <h4 class="title color-primary">Register Staff (User)</h4>
     <form method="post" action="register-staff">
         <div class="row">
+            <%
+                if(request.getAttribute("message") != null) {
+            %>
+            <div class="s12 alert blue darken-1 center">
+                <%=request.getAttribute("message")%>
+            </div>
+            <%
+                }
+            %>
             <div class="col s12 m6 l6 input-field">
                 <input type="text" class="validate" required name="FirstName" id="FirstName">
                 <label for="FirstName">First Name</label>
@@ -35,13 +53,18 @@
             </div>
 
             <div class="input-field col l4 m6 s12">
-                <select>
+                <select name="CampusNo">
                     <option value="" disabled selected>Select Campus</option>
-                    <option value="1">Option 1</option>
-                    <option value="2">Option 2</option>
-                    <option value="3">Option 3</option>
+                    <%
+                        for (Campus campus : campuses) {
+                    %>
+                    <option value="<%=campus.getCampusNo()%>"><%=campus.getCampusName()%></option>
+                    <%
+                        }
+                    %>
+
                 </select>
-                <label>Filter by  campus</label>
+                <label>Campus</label>
             </div>
             <div class="col s12">
                 <button type="submit" class="btn pink darken-4">Register User</button>

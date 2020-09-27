@@ -23,7 +23,6 @@
           </div>
 
           <div class="card-content">
-            <form method="post" action="auth">
               <div class="center">
                 <label>
                   <input class="with-gap pink darken-4" id="StaffRole" name="Role" type="radio" checked value="Staff"/>
@@ -38,34 +37,67 @@
                   <span>Professor</span>
                 </label>
               </div>
+              <%
+                if (request.getAttribute("error") != null) {
+              %>
+            <div class="center  red lighten-2 alert">
+                <%=request.getAttribute("error")%>
+            </div>
+            <%
+              }
+            %>
+             <div id="StaffField">
+               <form method="post" action="auth">
+                 <div class="input-field">
+                   <input name="UserId" type="text" id="UserId" class="validate" required>
+                   <label for="UserId">User ID</label>
+                 </div>
+                 <div class="input-field">
+                   <input type="password" name="Password" class="validate" required id="Password">
+                   <label for="Password">Password</label>
+                 </div>
+                 <div class="input-field">
+                   <input type="submit" name="Login" class="btn w-100 pink darken-4" value="Login">
+                 </div>
+               </form>
+             </div>
 
-              <div class="input-field " id="StaffField">
-                <input name="UserId" type="text" id="UserId" class="validate" required>
-                <label for="UserId">User ID</label>
+              <div id="StudentField" class="d-none">
+                <form action="auth" method="post">
+                  <div class="input-field">
+                    <input name="StudentNumber" type="text" id="StudentNumber" class="validate" required>
+                    <label for="StudentNumber">Student Number</label>
+                  </div>
+
+                  <div class="input-field">
+                    <input type="password" name="Password" class="validate" required id="Password">
+                    <label for="Password">Password</label>
+                  </div>
+                  <div class="input-field">
+                    <input type="submit" name="Login"  class="btn w-100 pink darken-4" value="Login">
+                  </div>
+                </form>
               </div>
 
-              <div class="input-field hiddendiv" id="StudentField">
-                <input name="StudentNumber" type="text" id="StudentNumber" class="validate" required>
-                <label for="StudentNumber">Student Number</label>
-              </div>
-
-              <div class="input-field hiddendiv" id="ProfessorField">
-                <input name="EmploymentNumber" type="text" id="EmploymentNumber" class="validate" required>
-                <label for="EmploymentNumber">Employment Number</label>
-              </div>
-
-              <div class="input-field">
-                <input type="password" name="Password" class="validate" required id="Password">
-                <label for="Password">Password</label>
-              </div>
-              <div>
-                <button style="width: 100%;" type="submit" class="btn w-100 pink darken-4">Login</button>
+              <div id="ProfessorField" class="d-none">
+                <form method="post" action="auth">
+                  <div class="input-field">
+                    <input name="EmploymentNumber" type="text" id="EmploymentNumber" class="validate" required>
+                    <label for="EmploymentNumber">Employment Number</label>
+                  </div>
+                  <div class="input-field">
+                    <input type="password" name="Password" class="validate" required id="Password">
+                    <label for="Password">Password</label>
+                  </div>
+                  <div class="input-field">
+                    <input type="submit" name="Login"  class="btn w-100 pink darken-4" value="Login">
+                  </div>
+                </form>
               </div>
               <br>
               <div>
                 <p class="center"><a href="reset-password">Forgot Password?</a></p>
               </div>
-            </form>
           </div>
         </div>
       </div>
@@ -74,24 +106,24 @@
 <script>
     $("#StaffRole").on("click", function (e) {
       if (this.checked) {
-        $("#StaffField").removeClass("hiddendiv");
-        $("#StudentField").addClass("hiddendiv");
-        $("#ProfessorField").addClass("hiddendiv");
+        $("#StaffField").removeClass("d-none");
+        $("#StudentField").addClass("d-none");
+        $("#ProfessorField").addClass("d-none");
       }
     })
 
     $("#StudentRole").on("click", function (e) {
       if (this.checked) {
-        $("#StaffField").addClass("hiddendiv");
-        $("#StudentField").removeClass("hiddendiv");
-        $("#ProfessorField").addClass("hiddendiv");
+        $("#StaffField").addClass("d-none");
+        $("#StudentField").removeClass("d-none");
+        $("#ProfessorField").addClass("d-none");
       }
     })
     $("#ProfessorRole").on("click", function (e) {
       if (this.checked) {
-        $("#StaffField").addClass("hiddendiv");
-        $("#StudentField").addClass("hiddendiv");
-        $("#ProfessorField").removeClass("hiddendiv");
+        $("#StaffField").addClass("d-none");
+        $("#StudentField").addClass("d-none");
+        $("#ProfessorField").removeClass("d-none");
       }
     })
 </script>

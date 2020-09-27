@@ -50,7 +50,7 @@ public class ShelfDAO {
     }
 
     public static List<Shelf> all() {
-        return createList(DatabaseAccess.executeQuery("select * from Shell"));
+        return createList(DatabaseAccess.executeQuery("select * from Shelf"));
     }
 
 

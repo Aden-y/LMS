@@ -14,6 +14,15 @@
     <form action="register-professor" method="post">
         <h4 class="title color-primary">Register Professor</h4>
         <div class="row">
+            <%
+                if(request.getAttribute("message") != null) {
+            %>
+            <div class="s12 alert blue darken-1 center">
+                <%=request.getAttribute("message")%>
+            </div>
+            <%
+                }
+            %>
             <div class="col l4 m6 s12 input-field">
                 <input type="text" name="EmploymentId" class="validate" required id="EmploymentId">
                 <label for="EmploymentId">EmploymentNumber</label>
@@ -43,7 +52,7 @@
             </div>
 
             <div class="col l6 s12 input-field">
-                <input type="number" min="1000" max="<%=new java.util.Date().getYear()%>" name="EmploymentYear" class="validate" required id="EmploymentYear">
+                <input type="number" min="1800" max="<%=new java.util.Date().getYear() + 1900%>" name="EmploymentYear" class="validate" required id="EmploymentYear">
                 <label for="EmploymentYear">Employment Year</label>
             </div>
 

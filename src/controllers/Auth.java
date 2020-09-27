@@ -17,10 +17,9 @@ import java.io.IOException;
 @WebServlet(name = "Auth", urlPatterns = {"/auth"})
 public class Auth extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String role = request.getParameter("Role").trim().toUpperCase();
         String password = request.getParameter("Password");
         try {
-            if (role.equals("STAFF")) {
+            if (request.getParameter("UserId") != null) {
                 String userId = request.getParameter("UserId");
                 Staff staff = StaffDAO.login(userId, password);
                 if (staff == null) {
@@ -30,7 +29,7 @@ public class Auth extends HttpServlet {
                     request.getSession().setAttribute("user", staff);
                     response.sendRedirect("staff.jsp");
                 }
-            }else if (role.equals("STUDENT")) {
+            }else if (request.getParameter("StudentNumber") != null) {
                 String studentNumber = request.getParameter("StudentNumber");
                 Student student = StudentDAO.login(studentNumber, password);
                 if (student == null) {
@@ -41,7 +40,7 @@ public class Auth extends HttpServlet {
                     response.sendRedirect("student.jsp");
                 }
 
-            }else if (role.equals("PROFESSOR")) {
+            }else if (request.getParameter("EmploymentNumber") != null) {
                 String employmentNumber = request.getParameter("EmploymentNumber");
                 Professor professor = ProfessorDAO.login(employmentNumber, password);
                 if (professor == null) {
@@ -62,6 +61,6 @@ public class Auth extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.sendRedirect("login.jsp");
+        response.sendRedirect("index.jsp");
     }
 }

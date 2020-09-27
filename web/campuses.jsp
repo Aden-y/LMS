@@ -1,4 +1,5 @@
-<%--
+<%@ page import="java.util.List" %>
+<%@ page import="models.Campus" %><%--
   Created by IntelliJ IDEA.
   User: User
   Date: 9/23/2020
@@ -9,6 +10,13 @@
 <html>
 <jsp:include page="templates/header.html"/>
 <body>
+<%
+    List<Campus> campuses = (List<Campus>) request.getAttribute("campuses");
+    if(campuses == null) {
+        response.sendRedirect("campuses");
+        return;
+    }
+%>
 <jsp:include page="templates/nav.jsp"/>
 <div class="p-2">
     <h4 class="title color-primary">Campuses</h4>
@@ -26,13 +34,21 @@
                 </tr>
                 </thead>
                 <tbody>
+                <%
+                    for (Campus campus: campuses) {
+                %>
                 <tr>
-                    <td>Alvin</td>
-                    <td>Eclair</td>
-                    <td>2000</td>
-                    <td>100</td>
-                    <td>Eclair</td>
+                    <td><%=campus.getCampusName()%></td>
+                    <td><%=campus.studentsCount()%></td>
+                    <td><%=campus.staffCount()%></td>
+                    <td><%=campus.shelfCount()%></td>
+                    <td>
+                        <a href="shelves?c=<%=campus.getCampusNo()%>" class="btn-small pink darken-4"><i class="fa fa-trash">&nbsp;</i>Manage Shelves</a>
+                    </td>
                 </tr>
+                <%
+                    }
+                %>
                 </tbody>
             </table>
         </div>

@@ -58,7 +58,7 @@ public class ProfessorDAO {
                 "'"+professor.getEmail()+"', " +
                 "'"+professor.getDepartment()+"', " +
                 "'"+professor.getPassword()+"', "+professor.getEmploymentYear()+")";
-
+        DatabaseAccess.executeUpdate(sql);
     }
 
     public static Professor get(String employmentId) {

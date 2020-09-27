@@ -1,4 +1,7 @@
-<%--
+<%@ page import="models.BookCategory" %>
+<%@ page import="java.util.List" %>
+<%@ page import="models.Binding" %>
+<%@ page import="models.Shelf" %><%--
   Created by IntelliJ IDEA.
   User: User
   Date: 9/23/2020
@@ -9,8 +12,17 @@
 <html>
 <jsp:include page="templates/header.html"/>
 <body>
+<%
+    List<BookCategory> categories = (List<BookCategory>) request.getAttribute("categories");
+    List<Binding> bindings = (List<Binding>) request.getAttribute("bindings");
+    List<Shelf> shelves = (List<Shelf>) request.getAttribute("shelves");
+    if (categories == null || bindings == null || shelves == null) {
+        response.sendRedirect("new-book");
+        return;
+    }
+%>
 <jsp:include page="templates/nav.jsp"/>
-<div>
+<div class="p-2">
     <h4 class="title color-primary">New Book</h4>
     <div class="row">
             <div class="row col s8">
@@ -37,9 +49,13 @@
                     <div class="input-field col s6">
                         <select required name="CategoryId">
                             <option value="" disabled selected>Select Category</option>
-                            <option value="1">Option 1</option>
-                            <option value="2">Option 2</option>
-                            <option value="3">Option 3</option>
+                            <%
+                                for (BookCategory category: categories) {
+                            %>
+                            <option value="<%=category.getCategoryId()%>"><%=category.getCategoryName()%></option>
+                            <%
+                                }
+                            %>
                         </select>
                         <label>Select Category</label>
                     </div>
@@ -47,9 +63,13 @@
                     <div class="input-field col s6">
                         <select required name="BindingId">
                             <option value="" disabled selected>Select Binding</option>
-                            <option value="1">Option 1</option>
-                            <option value="2">Option 2</option>
-                            <option value="3">Option 3</option>
+                            <%
+                                for (Binding binding: bindings) {
+                            %>
+                            <option value="<%=binding.getBindingId()%>"><%=binding.getBindingName()%></option>
+                            <%
+                                }
+                            %>
                         </select>
                         <label>Select Binding</label>
                     </div>
@@ -60,13 +80,17 @@
                     </div>
 
                     <div class="input-field col s6">
-                        <select required name="BindingId">
+                        <select required name="ShelfId">
                             <option value="" disabled selected>Select shelf</option>
-                            <option value="1">Option 1</option>
-                            <option value="2">Option 2</option>
-                            <option value="3">Option 3</option>
+                            <%
+                                for (Shelf shelf: shelves) {
+                            %>
+                            <option value="<%=shelf.getShelfId()%>"><%=shelf%></option>
+                            <%
+                                }
+                            %>
                         </select>
-                        <label>Shelf (optional) can be updated later</label>
+                        <label>Shelf</label>
                     </div>
                     <div class="input-field col s12">
                         <button class="btn pink darken-4 w-100" title="submit">add book to library</button>
@@ -78,7 +102,13 @@
             <h6 class="title color-primary">Manage Categories & Bindings</h6>
             <label>Categories</label>
             <div>
-                <div class="chip">Example Category</div>
+                <%
+                    for (BookCategory category: categories) {
+                %>
+                <div class="chip"><%=category.getCategoryName()%></div>
+                <%
+                    }
+                %>
                 <form action="new-book" method="post">
                     <div class="input-field">
                         <input class="validate" name="CategoryName" id="CategoryName" required placeholder="Category name">
@@ -90,7 +120,13 @@
             </div>
             <label>Bindings</label>
             <div>
-                <div class="chip">Example Binding</div>
+                <%
+                    for (Binding binding: bindings) {
+                %>
+                <div class="chip"><%=binding.getBindingName()%></div>
+                <%
+                    }
+                %>
                 <form action="new-book" method="post">
                     <div class="input-field">
                         <input class="validate" name="BindingName" id="BindingName" required placeholder="Binding Name">

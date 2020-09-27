@@ -15,11 +15,6 @@ import java.io.IOException;
 @WebServlet(name = "ProfessorRegister", urlPatterns = {"/register-professor"})
 public class ProfessorRegister extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        /*
-        private String EmploymentId ,FirstName , LastName , Phone , Email , Department , Password;
-    private int EmploymentYear ;
-         */
-
         String employmentId = request.getParameter("EmploymentId"),
                 firstName  = request.getParameter("FirstName"),
                 lastName = request.getParameter("LastName"),
@@ -34,7 +29,7 @@ public class ProfessorRegister extends HttpServlet {
                         "Access the system with the following details.\n" +
                         "Employment Number : "+employmentId+"\n" +
                         "Password          :"+password;
-        MailerService.sendMessage(email, subject, message);
+        //MailerService.sendMessage(email, subject, message);
         request.setAttribute("message", "Professor registered successfully. Credentials emailed at "+email);
         request.getRequestDispatcher("register-professor.jsp").forward(request, response);
     }

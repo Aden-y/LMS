@@ -1,5 +1,9 @@
 package models;
 
+import dao.ShelfDAO;
+import dao.StaffDAO;
+import dao.StudentDAO;
+
 public class Campus {
     private int CampusNo;
     private String CampusName;
@@ -29,5 +33,17 @@ public class Campus {
 
     public void setCampusName(String campusName) {
         CampusName = campusName;
+    }
+
+    public int studentsCount() {
+        return StudentDAO.findByCampus(CampusNo).size();
+    }
+
+    public int staffCount() {
+        return  StaffDAO.findByCampus(CampusNo).size();
+    }
+
+    public int shelfCount() {
+        return ShelfDAO.findByCampus(CampusNo).size();
     }
 }

@@ -41,4 +41,8 @@ public class BindingDAO {
     public static Binding get(int bindingId) {
         return create(DatabaseAccess.executeQuery("select * from Binding where BindingId = "+bindingId));
     }
+
+    public static List<Binding> all() {
+        return createList(DatabaseAccess.executeQuery("select * from Binding "));
+    }
 }

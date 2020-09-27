@@ -3,6 +3,7 @@ package controllers;
 import dao.BindingDAO;
 import dao.BookCategoryDAO;
 import dao.BookDAO;
+import dao.ShelfDAO;
 import models.Binding;
 import models.Book;
 import models.BookCategory;
@@ -43,10 +44,16 @@ public class NewBook extends HttpServlet {
 
         BookDAO.create(new Book(bindingId, copiesActual, copiesActual, categoryId, publicationYear, shelfId, title, author, language));
         request.setAttribute("message", "Book "+title+" added to the database.");
+        request.setAttribute("categories", BookCategoryDAO.all());
+        request.setAttribute("bindings", BindingDAO.all());
+        request.setAttribute("shelves", ShelfDAO.all());
         request.getRequestDispatcher("new-book.jsp").forward(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setAttribute("categories", BookCategoryDAO.all());
+        request.setAttribute("bindings", BindingDAO.all());
+        request.setAttribute("shelves", ShelfDAO.all());
         request.getRequestDispatcher("new-book.jsp").forward(request, response);
     }
 }

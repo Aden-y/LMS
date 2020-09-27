@@ -1,5 +1,7 @@
 package models;
 
+import services.DateService;
+
 import java.sql.Date;
 
 public class Student {
@@ -141,5 +143,9 @@ public class Student {
 
     public void setBorrowerId(int borrowerId) {
         BorrowerId = borrowerId;
+    }
+
+    public String getDateOfBirthString() {
+        return DateService.toString(DateOfBirth);
     }
 }

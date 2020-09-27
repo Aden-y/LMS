@@ -10,7 +10,7 @@ create table if not exists Student (
     Email varchar (100) not null ,
     Sex varchar (20),
     DateOfBirth date not null ,
-    BorrowerId int auto_increment not null,
+    BorrowerId int auto_increment unique key not null,
     CampusNo int not null ,
     Department varchar(50) not null ,
     Password varchar (50) not null,
@@ -51,7 +51,7 @@ create table if not exists Binding(
 );
 
 create table if not exists Shelf(
-    ShelfId int primary key  null null auto_increment,
+    ShelfId int primary key  not null auto_increment,
     ShelfNo int not null ,
     FloorNo int not null,
     CampusNo int not null ,
@@ -80,7 +80,7 @@ create table if not exists Borrower(
     BorrowedFrom date not null ,
     BorrowedTo date not null,
     ReturnDate date,
-    Issuer varchar (15) not null ,
+    Issuer int not null ,
     foreign key (BorrowerId) references Student(BorrowerId),
     foreign key (BookId) references Book(ISBNCode),
     foreign key (Issuer) references Staff(UserId)

@@ -63,4 +63,8 @@ public class StaffDAO {
     public static Staff login(String userId, String password) {
         return create(DatabaseAccess.executeQuery("select * from Staff where UserId = '"+userId+"' and Password = '"+password+"'"));
     }
+
+    public static List<Staff> findByCampus(int campusNo){
+        return  createList(DatabaseAccess.executeQuery("select * from Staff where CampusNo = "+campusNo));
+    }
 }

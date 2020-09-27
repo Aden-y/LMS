@@ -1,5 +1,8 @@
 package models;
 
+import dao.BookDAO;
+import dao.CampusDAO;
+
 public class Shelf {
     private int ShelfId, ShelfNo, FloorNo, CampusNo;;
 
@@ -53,5 +56,18 @@ public class Shelf {
 
     public void setFloorNo(int floorNo) {
         FloorNo = floorNo;
+    }
+
+    @Override
+    public String toString() {
+        return "C"+CampusNo+"F"+FloorNo+"S"+ShelfNo;
+    }
+
+    public String campusName() {
+        return CampusDAO.get(CampusNo).getCampusName();
+    }
+
+    public int booksCount() {
+        return BookDAO.findByShelf(ShelfNo).size();
     }
 }

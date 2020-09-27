@@ -1,4 +1,6 @@
-<%--
+<%@ page import="java.util.List" %>
+<%@ page import="models.Campus" %>
+<%@ page import="models.Shelf" %><%--
   Created by IntelliJ IDEA.
   User: User
   Date: 9/24/2020
@@ -8,6 +10,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <jsp:include page="templates/header.html"/>
+<%
+    List<Campus> campuses = (List<Campus>) request.getAttribute("campuses");
+    List<Shelf> shelves = (List<Shelf>) request.getAttribute("shelves");
+
+    if (shelves == null || campuses == null) {
+        response.sendRedirect("shelves");
+        return;
+    }
+%>
 
 <body>
 <jsp:include page="templates/nav.jsp"/>
@@ -17,11 +28,14 @@
         <div class="col s12 m8 l8">
             <h6 class="title color-primary">Displaying shelves for some campus</h6>
             <div class="input-field">
-                <select name="CampusNo">
-                    <option value="" disabled selected>Select Campus</option>
-                    <option value="1">Option 1</option>
-                    <option value="2">Option 2</option>
-                    <option value="3">Option 3</option>
+                <select name="c">
+                    <%
+                        for (Campus campus: campuses) {
+                    %>
+                    <option value="<%=campus.getCampusNo()%>"><%=campus.getCampusName()%></option>
+                    <%
+                        }
+                    %>
                 </select>
                 <label>Choose campus to display shelves</label>
             </div>
@@ -37,10 +51,16 @@
 
                 <tbody>
                 <tr>
-                    <td>Alvin</td>
-                    <td>Eclair</td>
-                    <td>$0.87</td>
-                    <td>Eclair</td>
+                    <%
+                        for (Shelf shelf: shelves) {
+                    %>
+                    <td><%=shelf.getShelfNo()%></td>
+                    <td><%=shelf.getFloorNo()%></td>
+                    <td><%=shelf.campusName()%></td>
+                    <td><%=shelf.booksCount()%></td>
+                    <%
+                        }
+                    %>
                 </tr>
 
                 </tbody>
@@ -50,11 +70,15 @@
             <h6 class="title color-primary">Create new shelf</h6>
             <form method="post" action="shelves">
                 <div class="input-field">
-                    <select name="CampusToDisplay">
+                    <select name="CampusNo">
                         <option value="" disabled selected>Select Campus</option>
-                        <option value="1">Option 1</option>
-                        <option value="2">Option 2</option>
-                        <option value="3">Option 3</option>
+                        <%
+                            for (Campus campus: campuses) {
+                        %>
+                        <option value="<%=campus.getCampusNo()%>"><%=campus.getCampusName()%></option>
+                        <%
+                            }
+                        %>
                     </select>
                     <label>Campus</label>
                 </div>

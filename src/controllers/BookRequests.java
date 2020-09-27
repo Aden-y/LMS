@@ -1,5 +1,8 @@
 package controllers;
 
+import dao.BookRequestDAO;
+import models.Staff;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,6 +17,8 @@ public class BookRequests extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        Staff staff = (Staff) request.getSession().getAttribute("user");
+        request.setAttribute("requests", BookRequestDAO.findByCampus(staff.getCampusNo()));
+        request.getRequestDispatcher("book-requests.jsp").forward(request, response);
     }
 }

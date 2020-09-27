@@ -7,7 +7,87 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4a8d7123-66f5-4b4b-92f7-4c79d9dddbf6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/activation.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/commons_fileupload_1_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/commons_io_2_8_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/j2ee.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/javax_mail.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_8_0_18.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/debug/LMS.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LMS.iml" beforeDir="false" afterPath="$PROJECT_DIR$/LMS.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/WEB-INF/classes/controllers/Auth.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/WEB-INF/classes/controllers/Auth.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/WEB-INF/classes/controllers/BookRequests.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/WEB-INF/classes/controllers/BookRequests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/WEB-INF/classes/controllers/NewBook.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/WEB-INF/classes/controllers/NewBook.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/WEB-INF/classes/controllers/NewEBook.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/WEB-INF/classes/controllers/NewEBook.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/WEB-INF/classes/controllers/ProfessorRegister.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/WEB-INF/classes/controllers/ProfessorRegister.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/WEB-INF/classes/controllers/StaffRegister.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/WEB-INF/classes/controllers/StaffRegister.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/WEB-INF/classes/controllers/StudentRegister.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/WEB-INF/classes/controllers/StudentRegister.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/WEB-INF/classes/dao/BindingDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/WEB-INF/classes/dao/BindingDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/WEB-INF/classes/dao/ProfessorDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/WEB-INF/classes/dao/ProfessorDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/WEB-INF/classes/dao/StaffDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/WEB-INF/classes/dao/StaffDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/WEB-INF/classes/dao/StudentDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/WEB-INF/classes/dao/StudentDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/WEB-INF/classes/data/lms.sql" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/WEB-INF/classes/data/lms.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/WEB-INF/classes/models/Campus.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/WEB-INF/classes/models/Campus.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/WEB-INF/classes/models/Student.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/WEB-INF/classes/models/Student.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/WEB-INF/classes/services/DateService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/WEB-INF/classes/services/DateService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/WEB-INF/classes/services/MailerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/WEB-INF/classes/services/MailerService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/assets/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/books.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/books.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/campuses.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/campuses.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/new-book.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/new-book.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/new-e-book.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/new-e-book.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/register-professor.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/register-professor.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/register-staff.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/register-staff.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/register-student.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/register-student.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LMS/controllers/Auth.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LMS/controllers/Auth.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LMS/controllers/BookRequests.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LMS/controllers/BookRequests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LMS/controllers/NewBook.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LMS/controllers/NewBook.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LMS/controllers/NewEBook.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LMS/controllers/NewEBook.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LMS/controllers/ProfessorRegister.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LMS/controllers/ProfessorRegister.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LMS/controllers/StaffRegister.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LMS/controllers/StaffRegister.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LMS/controllers/StudentRegister.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LMS/controllers/StudentRegister.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LMS/dao/BindingDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LMS/dao/BindingDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LMS/dao/ProfessorDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LMS/dao/ProfessorDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LMS/dao/StaffDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LMS/dao/StaffDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LMS/dao/StudentDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LMS/dao/StudentDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LMS/data/lms.sql" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LMS/data/lms.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LMS/models/Campus.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LMS/models/Campus.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LMS/models/Student.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LMS/models/Student.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LMS/services/DateService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LMS/services/DateService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LMS/services/MailerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LMS/services/MailerService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/Auth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/Auth.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/BookRequests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/BookRequests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/NewBook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/NewBook.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/NewEBook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/NewEBook.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/ProfessorRegister.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/ProfessorRegister.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/Shelves.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/Shelves.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/StaffRegister.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/StaffRegister.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/StudentRegister.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/StudentRegister.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/BindingDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/BindingDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/BookDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/BookDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/ProfessorDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/ProfessorDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/ShelfDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/ShelfDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/StaffDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/StaffDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/StudentDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/StudentDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/lms.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/lms.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Campus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Campus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Shelf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Shelf.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/DateService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/DateService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/MailerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/MailerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/assets/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/books.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/books.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/campuses.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/campuses.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/new-book.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/new-book.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/new-e-book.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/new-e-book.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/register-professor.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/register-professor.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/register-staff.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/register-staff.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/register-student.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/register-student.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/shelves.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/shelves.jsp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,8 +103,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Jsp File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -48,14 +128,19 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="F:/Java APIs/j2ee.jar!/" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -69,7 +154,20 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Tomcat Server.Tomcat 8.5.461">
+    <configuration name="LMS" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="debug.LMS" />
+      <module name="LMS" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="debug.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Tomcat 8.5.461" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.461" ALTERNATIVE_JRE_ENABLED="false">
       <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
       <option name="UPDATE_CLASSES_ON_FRAME_DEACTIVATION" value="true" />
@@ -143,6 +241,11 @@
         </option>
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.LMS" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -156,7 +259,10 @@
       <updated>1600841528540</updated>
       <workItem from="1600841533515" duration="25238000" />
       <workItem from="1600932669911" duration="9945000" />
-      <workItem from="1600957105213" duration="14209000" />
+      <workItem from="1600957105213" duration="16924000" />
+      <workItem from="1601037496396" duration="223000" />
+      <workItem from="1601125387397" duration="18824000" />
+      <workItem from="1601188172995" duration="7886000" />
     </task>
     <servers />
   </component>

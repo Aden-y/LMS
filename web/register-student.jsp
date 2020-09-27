@@ -1,4 +1,5 @@
-<%--
+<%@ page import="models.Campus" %>
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: User
   Date: 9/23/2020
@@ -9,11 +10,28 @@
 <html>
 <jsp:include page="templates/header.html"/>
 <body>
+<%
+    List<Campus> campuses = (List<Campus>) request.getAttribute("campuses");
+    if (campuses == null) {
+        //request.getRequestDispatcher("register-staff").forward(request, response);
+        response.sendRedirect("register-student");
+        return;
+    }
+%>
 <jsp:include page="templates/nav.jsp"/>
 <div class="p-2">
     <form action="register-student" method="post">
         <h4 class="title color-primary">Register Student</h4>
         <div class="row">
+            <%
+                if(request.getAttribute("message") != null) {
+            %>
+            <div class="s12 alert blue darken-1 center">
+                <%=request.getAttribute("message")%>
+            </div>
+            <%
+                }
+            %>
             <div class="col l4 m6 s12 input-field">
                 <input type="text" name="StudentNumber" class="validate" required id="StudentNumber">
                 <label for="StudentNumber">Student Number</label>
@@ -64,9 +82,13 @@
             <div class="input-field col l6 s12">
                 <select name="CampusNo">
                     <option value="" disabled selected>Select Campus</option>
-                    <option value="1">Option 1</option>
-                    <option value="2">Option 2</option>
-                    <option value="3">Option 3</option>
+                    <%
+                        for (Campus campus : campuses) {
+                    %>
+                    <option value="<%=campus.getCampusNo()%>"><%=campus.getCampusName()%></option>
+                    <%
+                        }
+                    %>
                 </select>
                 <label>Campus</label>
             </div>

@@ -1,3 +1,5 @@
+<%@ page import="java.util.List" %>
+<%@ page import="models.BookCategory" %>
 <%--
   Created by IntelliJ IDEA.
   User: User
@@ -9,14 +11,21 @@
 <html>
 <jsp:include page="templates/header.html"/>
 <body>
+<%
+    List<BookCategory> categories = (List<BookCategory>) request.getAttribute("categories");
+    if (categories == null) {
+        response.sendRedirect("new-e-book");
+        return;
+    }
+%>
 <jsp:include page="templates/nav.jsp"/>
-<div>
+<div class="p-2">
     <h4 class="title color-primary">e-book</h4>
     <div class="row">
         <div class="row col s8">
             <h6 class="title color-primary">Create new e-book</h6>
-            <form method="post" action="new-e-book">
-                <div class="col s12 input-field">
+            <form method="post" action="new-e-book" enctype="multipart/form-data">
+            <div class="col s12 input-field">
                     <input type="text" name="Title" id="Title" class="validate" required>
                     <label for="Title">Book Title</label>
                 </div>
@@ -37,15 +46,19 @@
                 <div class="input-field col s12">
                     <select required name="CategoryId">
                         <option value="" disabled selected>Select Category</option>
-                        <option value="1">Option 1</option>
-                        <option value="2">Option 2</option>
-                        <option value="3">Option 3</option>
+                        <%
+                            for (BookCategory category: categories) {
+                        %>
+                        <option value="<%=category.getCategoryId()%>"><%=category.getCategoryName()%></option>
+                        <%
+                            }
+                        %>
                     </select>
-                    <label>Select Category</label>
+                    <label>Category</label>
                 </div>
 
                 <div class="file-field input-field col s12">
-                    <div class="btn pink darken-4">
+                    <div class="btn-small pink darken-4">
                         <span>File</span>
                         <input type="file" name="File">
                     </div>
@@ -65,7 +78,13 @@
             <h6 class="title color-primary">Manage Categories</h6>
             <label>Categories</label>
             <div>
-                <div class="chip">Example Category</div>
+                <%
+                    for (BookCategory category: categories) {
+                %>
+                <div class="chip"><%=category.getCategoryName()%></div>
+                <%
+                    }
+                %>
                 <form action="new-e-book" method="post">
                     <div class="input-field">
                         <input class="validate" name="CategoryName" id="CategoryName" required placeholder="Category name">

@@ -57,7 +57,7 @@ public class StudentDAO {
     }
 
     public static  void create(Student student) {
-        String sql = "insert into Student (StudentNumber, FirstName, LastName, Phone, Email, Sex, Department, DateOfBirth,  CampusNo) values(";
+        String sql = "insert into Student (StudentNumber, FirstName, LastName, Phone, Email, Sex, Department,Password, DateOfBirth,  CampusNo) values(";
         sql+="'"+student.getStudentNumber()+"', ";
         sql+="'"+student.getFirstName()+"', ";
         sql+="'"+student.getLastName()+"', ";
@@ -65,7 +65,8 @@ public class StudentDAO {
         sql+="'"+student.getEmail()+"', ";
         sql+="'"+student.getSex()+"', ";
         sql+="'"+student.getDepartment()+"', ";
-        sql+="'"+student.getDateOfBirth()+"', ";
+        sql+="'"+student.getPassword()+"', ";
+        sql+="'"+student.getDateOfBirthString()+"', ";
         sql+=student.getCampusNo()+")";
         DatabaseAccess.executeUpdate(sql);
 
@@ -93,4 +94,7 @@ public class StudentDAO {
         return create(DatabaseAccess.executeQuery("select * from Student where StudentNumber = '"+studentNumber+"'"));
     }
 
+    public static List<Student> findByCampus(int campusNo) {
+        return createList(DatabaseAccess.executeQuery("select * from Student where CampusNo = "+campusNo));
+    }
 }

@@ -28,10 +28,10 @@ public class Shelves extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<Campus> campuses = CampusDAO.all();
         request.setAttribute("campuses", campuses);
-        if(request.getParameter("CampusToDisplay") == null) {
+        if(request.getParameter("c") == null) {
             request.setAttribute("shelves", ShelfDAO.findByCampus(campuses.get(0).getCampusNo()));
         }else {
-            request.setAttribute("shelves", ShelfDAO.findByCampus(Integer.parseInt(request.getParameter("CampusToDisplay"))));
+            request.setAttribute("shelves", ShelfDAO.findByCampus(Integer.parseInt(request.getParameter("c"))));
         }
         request.getRequestDispatcher("shelves.jsp").forward(request, response);
     }

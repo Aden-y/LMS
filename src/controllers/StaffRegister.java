@@ -1,5 +1,6 @@
 package controllers;
 
+import dao.CampusDAO;
 import dao.StaffDAO;
 import models.Staff;
 import services.MailerService;
@@ -27,12 +28,15 @@ public class StaffRegister extends HttpServlet {
                 message =  "You have been successfully registered as a Staff.\n" +
                         "Password : "+password+"\n" +
                         "User Id  :"+userId;
-        MailerService.sendMessage(email, subject, message);
+        //MailerService.sendMessage(email, subject, message);
         request.setAttribute("message", "Staff registered successfully. Details emailed at "+email);
+        request.setAttribute("campuses", CampusDAO.all());
         request.getRequestDispatcher("register-staff.jsp").forward(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setAttribute("campuses", CampusDAO.all());
         request.getRequestDispatcher("register-staff.jsp").forward(request, response);
     }
+
 }

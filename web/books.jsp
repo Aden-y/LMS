@@ -10,7 +10,7 @@
 <jsp:include page="templates/header.html"/>
 <body>
     <jsp:include page="templates/nav.jsp"/>
-<div>
+<div class="p-2">
     <h4 class="title color-primary">Library Books</h4>
     <div class="row">
         <div class="input-field col l4 s12 m4">
@@ -53,7 +53,12 @@
                 <td>Alvin</td>
                 <td>Eclair</td>
                 <td>$0.87</td>
-                <td>Eclair</td>
+                <td>
+                    <form action="book-requests" method="post">
+                        <input name="ISBNCode" value="1" hidden>
+                        <input type="submit" name="RequestBook" class="btn-small pink darken-4" value="Request">
+                    </form>
+                </td>
             </tr>
 
             </tbody>
