@@ -86,4 +86,9 @@ public class Professor {
     public void setEmploymentYear(int employmentYear) {
         EmploymentYear = employmentYear;
     }
+
+    @Override
+    public String toString() {
+        return FirstName +" "+ LastName;
+    }
 }

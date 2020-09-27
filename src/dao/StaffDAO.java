@@ -67,4 +67,8 @@ public class StaffDAO {
     public static List<Staff> findByCampus(int campusNo){
         return  createList(DatabaseAccess.executeQuery("select * from Staff where CampusNo = "+campusNo));
     }
+
+    public static List<Staff> all() {
+        return createList(DatabaseAccess.executeQuery("select * from Staff"));
+    }
 }

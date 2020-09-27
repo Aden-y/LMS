@@ -1,5 +1,7 @@
 package models;
 
+import dao.ShelfDAO;
+
 public class Book {
     private  int ISBNCode, BindingId, CopiesActual, CopiesAvailable, CategoryId, PublicationYear, ShelfId ;
     private String Title, Language , Author;
@@ -144,5 +146,9 @@ public class Book {
         }else {
             return false;
         }
+    }
+
+    public Shelf getShelf() {
+        return ShelfDAO.get(ShelfId);
     }
 }

@@ -1,5 +1,6 @@
 package models;
 
+import dao.CampusDAO;
 import services.DateService;
 
 import java.sql.Date;
@@ -147,5 +148,14 @@ public class Student {
 
     public String getDateOfBirthString() {
         return DateService.toString(DateOfBirth);
+    }
+
+    @Override
+    public String toString() {
+        return FirstName +" "+LastName;
+    }
+
+    public Campus getCampus() {
+        return CampusDAO.get(CampusNo);
     }
 }

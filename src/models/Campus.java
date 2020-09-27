@@ -46,4 +46,9 @@ public class Campus {
     public int shelfCount() {
         return ShelfDAO.findByCampus(CampusNo).size();
     }
+
+    @Override
+    public String toString() {
+        return CampusName;
+    }
 }

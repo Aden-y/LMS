@@ -1,5 +1,7 @@
 package models;
 
+import dao.CampusDAO;
+
 public class Staff {
     private String  FirstName , LastName ,Phone ,Email , Password;
     private boolean IsAdmin ;
@@ -96,5 +98,14 @@ public class Staff {
 
     public void setCampusNo(int campusNo) {
         CampusNo = campusNo;
+    }
+
+    @Override
+    public String toString() {
+        return FirstName+" "+LastName;
+    }
+
+    public  Campus getCampus() {
+        return CampusDAO.get(CampusNo);
     }
 }

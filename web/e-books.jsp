@@ -1,4 +1,6 @@
-<%--
+<%@ page import="models.EBook" %>
+<%@ page import="java.util.List" %>
+<%@ page import="models.BookCategory" %><%--
   Created by IntelliJ IDEA.
   User: User
   Date: 9/23/2020
@@ -9,16 +11,29 @@
 <html>
 <jsp:include page="templates/header.html"/>
 <body>
+<%
+    List<EBook> books = (List<EBook>) request.getAttribute("e-books");
+    List<BookCategory> categories = (List<BookCategory>) request.getAttribute("categories");
+
+    if (books == null ||  categories == null) {
+        response.sendRedirect("e-books");
+        return;
+    }
+%>
 <jsp:include page="templates/nav.jsp"/>
-<div>
+<div class="p-2">
     <h4 class="title color-primary">E-books</h4>
     <div class="row">
         <div class="input-field col s12 l6 m6">
             <select>
                 <option value="" disabled selected>Choose category</option>
-                <option value="1">Option 1</option>
-                <option value="2">Option 2</option>
-                <option value="3">Option 3</option>
+                <%
+                    for (BookCategory category: categories) {
+                %>
+                <option value="<%=category.getCategoryId()%>"><%=category.getCategoryName()%></option>
+                <%
+                    }
+                %>
             </select>
             <label>Filter by category</label>
         </div>
@@ -34,18 +49,27 @@
             <tr>
                 <th>ISBN</th>
                 <th>Title</th>
-                <th>Copies Available</th>
                 <th>Action</th>
             </tr>
             </thead>
 
             <tbody>
+            <%
+                for (EBook book : books) {
+            %>
             <tr>
-                <td>Alvin</td>
-                <td>Eclair</td>
-                <td>$0.87</td>
-                <td>Eclair</td>
+                <td><%=book.getISBNCode()%></td>
+                <td><%=book.getTitle()%></td>
+                <td>
+                    <form action="e-books" method="post">
+                        <input name="ISBNCode" value="<%=book.getISBNCode()%>" hidden>
+                        <input type="submit" name="DownloadEBook" class="btn-small pink darken-4" value="Download">
+                    </form>
+                </td>
             </tr>
+            <%
+                }
+            %>
 
             </tbody>
         </table>

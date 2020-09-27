@@ -57,4 +57,8 @@ public class ShelfDAO {
     public static List<Shelf> findByCampus(int campusNo) {
         return createList(DatabaseAccess.executeQuery("select * from Shelf where CampusNo = "+campusNo));
     }
+
+    public static Shelf get(int ShelfId) {
+        return create(DatabaseAccess.executeQuery("select * from Shelf where ShelfId = "+ShelfId));
+    }
 }
