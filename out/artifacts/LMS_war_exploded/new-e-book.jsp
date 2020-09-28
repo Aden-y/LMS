@@ -1,5 +1,6 @@
 <%@ page import="java.util.List" %>
 <%@ page import="models.BookCategory" %>
+<%@ page import="models.Staff" %>
 <%--
   Created by IntelliJ IDEA.
   User: User
@@ -12,6 +13,12 @@
 <jsp:include page="templates/header.html"/>
 <body>
 <%
+    Object user = session.getAttribute("user");
+    if (user == null || !(user instanceof Staff)) {
+        session.invalidate();
+        response.sendRedirect("index.jsp");
+        return;
+    }
     List<BookCategory> categories = (List<BookCategory>) request.getAttribute("categories");
     if (categories == null) {
         response.sendRedirect("new-e-book");

@@ -102,12 +102,31 @@ create table if not exists EBook(
     PublicationYear int not null,
     FilePath varchar (255) not  null unique  key
 );
-
+drop table if exists BookRequest;
 create table if not exists BookRequest(
     RequestId int not null  primary key auto_increment,
     BorrowerId int not null ,
     ISBNCode int not null ,
-    foreign key (BorrowerId) references Borrower(BorrowerId),
+    foreign key (BorrowerId) references Student(BorrowerId),
     foreign key (ISBNCode) references Book(ISBNCode)
 );
 
+create table if not exists ProfessorBookRequest(
+    RequestId int not null  primary key auto_increment,
+    EmploymentId varchar (15) not null ,
+    ISBNCode int not null ,
+    foreign key (EmploymentId) references Professor(EmploymentId),
+    foreign key (ISBNCode) references Book(ISBNCode)
+);
+
+create table if not exists ProfessorBorrow(
+    EmploymentId varchar (15) not null ,
+    BookId int not null,
+    BorrowedFrom date not null ,
+    BorrowedTo date not null,
+    ReturnDate date,
+    Issuer int not null ,
+    foreign key (EmploymentId) references Professor(EmploymentId),
+    foreign key (BookId) references Book(ISBNCode),
+    foreign key (Issuer) references Staff(UserId)
+);

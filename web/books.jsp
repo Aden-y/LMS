@@ -1,7 +1,5 @@
 <%@ page import="java.util.List" %>
-<%@ page import="models.Book" %>
-<%@ page import="models.BookCategory" %>
-<%@ page import="models.Campus" %><%--
+<%@ page import="models.*" %><%--
   Created by IntelliJ IDEA.
   User: User
   Date: 9/23/2020
@@ -12,9 +10,17 @@
 <html>
 <jsp:include page="templates/header.html"/>
 <%
+    Object user = session.getAttribute("user");
+    if (user == null) {
+        session.invalidate();
+        response.sendRedirect("index.jsp");
+        return;
+    }
     List<Book> books = (List<Book>) request.getAttribute("books");
     List<BookCategory> categories = (List<BookCategory>) request.getAttribute("categories");
     List<Campus> campuses = (List<Campus>) request.getAttribute("campuses");
+
+
 
     if (books == null || campuses == null || categories == null) {
         response.sendRedirect("books");
@@ -81,12 +87,49 @@
                 <td><%=book.getCopiesActual()%></td>
                 <td><%=book.getCopiesAvailable()%></td>
                 <td><%=book.getShelf()%></td>
+
+                <%
+                    if (user instanceof Student) {
+                        Student student = (Student) user;
+                %>
                 <td>
                     <form action="books" method="post">
                         <input name="ISBNCode" value="<%=book.getISBNCode()%>" hidden>
+                        <%
+                            if (book.canRequest(student.getBorrowerId())) {
+                        %>
                         <input type="submit" name="StudentRequestBook" class="btn-small pink darken-4" value="Request">
+                        <%
+                            }else{
+                        %>
+                        <input disabled type="submit" name="StudentRequestBook" class="btn-small pink darken-4" value="Request">
+                        <%
+                            }
+                        %>
+
                     </form>
                 </td>
+                <%
+                    } else if (user instanceof Professor){
+                %>
+                <td>
+                    <form action="books" method="post">
+                        <input name="ISBNCode" value="<%=book.getISBNCode()%>" hidden>
+                        <input type="submit" name="ProfessorRequestBook" class="btn-small pink darken-4" value="Request">
+                    </form>
+                </td>
+                <%
+                    } else if (user instanceof Staff) {
+                %>
+                <td>
+                    <form action="books" method="post">
+                        <input name="ISBNCode" value="<%=book.getISBNCode()%>" hidden>
+                        <input type="submit" name="EditBook" class="btn-small pink darken-4" value="Edit">
+                    </form>
+                </td>
+                <%
+                    }
+                %>
             </tr>
             <%
                 }

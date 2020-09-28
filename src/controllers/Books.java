@@ -25,6 +25,12 @@ public class Books extends HttpServlet {
             response.sendRedirect("books");
             return;
         }
+
+        if (request.getParameter("EditBook")  != null) {
+            request.setAttribute("book", BookDAO.get(Integer.parseInt(request.getParameter("ISBNCode"))));
+            request.getRequestDispatcher("edit-book.jsp").forward(request, response);
+            return;
+        }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

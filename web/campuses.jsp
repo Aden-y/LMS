@@ -1,5 +1,6 @@
 <%@ page import="java.util.List" %>
-<%@ page import="models.Campus" %><%--
+<%@ page import="models.Campus" %>
+<%@ page import="models.Staff" %><%--
   Created by IntelliJ IDEA.
   User: User
   Date: 9/23/2020
@@ -11,6 +12,12 @@
 <jsp:include page="templates/header.html"/>
 <body>
 <%
+    Object user = session.getAttribute("user");
+    if (user == null || !(user instanceof Staff) || ((Staff) user).isAdmin()) {
+        session.invalidate();
+        response.sendRedirect("index.jsp");
+        return;
+    }
     List<Campus> campuses = (List<Campus>) request.getAttribute("campuses");
     if(campuses == null) {
         response.sendRedirect("campuses");

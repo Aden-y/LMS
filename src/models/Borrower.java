@@ -1,5 +1,6 @@
 package models;
 
+import dao.BookDAO;
 import services.DateService;
 
 import java.sql.Date;
@@ -37,6 +38,9 @@ public class Borrower {
         Issuer = issuer;
     }
 
+    public Book getBook() {
+        return BookDAO.get(BookId);
+    }
     public int getBorrowerId() {
         return BorrowerId;
     }

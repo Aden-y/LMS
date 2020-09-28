@@ -11,6 +11,12 @@
 <html>
 <jsp:include page="templates/header.html"/>
 <%
+    Object user = session.getAttribute("user");
+    if (user == null || !(user instanceof Staff || !((Staff) user).isAdmin())) {
+        session.invalidate();
+        response.sendRedirect("index.jsp");
+        return;
+    }
     List<Campus> campuses = (List<Campus>) request.getAttribute("campuses");
     List<Staff> users = (List<Staff>) request.getAttribute("users");
 

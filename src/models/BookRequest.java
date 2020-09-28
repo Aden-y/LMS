@@ -1,5 +1,7 @@
 package models;
 
+import dao.BookDAO;
+
 public class BookRequest {
     private int RequestId , BorrowerId , ISBNCode ;
 
@@ -36,5 +38,9 @@ public class BookRequest {
 
     public void setISBNCode(int ISBNCode) {
         this.ISBNCode = ISBNCode;
+    }
+
+    public Book getBook() {
+        return BookDAO.get(ISBNCode);
     }
 }

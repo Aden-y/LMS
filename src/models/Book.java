@@ -1,5 +1,7 @@
 package models;
 
+import dao.BookRequestDAO;
+import dao.BorrowerDAO;
 import dao.ShelfDAO;
 
 public class Book {
@@ -150,5 +152,11 @@ public class Book {
 
     public Shelf getShelf() {
         return ShelfDAO.get(ShelfId);
+    }
+
+    public boolean canRequest(int borrowerId) {
+        return !BorrowerDAO.hasBorrowed(borrowerId, ISBNCode)
+                && !BookRequestDAO.isRequested(ISBNCode, borrowerId)
+                && CopiesAvailable > 0;
     }
 }

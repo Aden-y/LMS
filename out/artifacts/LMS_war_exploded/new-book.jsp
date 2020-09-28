@@ -1,7 +1,8 @@
 <%@ page import="models.BookCategory" %>
 <%@ page import="java.util.List" %>
 <%@ page import="models.Binding" %>
-<%@ page import="models.Shelf" %><%--
+<%@ page import="models.Shelf" %>
+<%@ page import="models.Staff" %><%--
   Created by IntelliJ IDEA.
   User: User
   Date: 9/23/2020
@@ -13,6 +14,12 @@
 <jsp:include page="templates/header.html"/>
 <body>
 <%
+    Object user = session.getAttribute("user");
+    if (user == null || !(user instanceof Staff)) {
+        session.invalidate();
+        response.sendRedirect("index.jsp");
+        return;
+    }
     List<BookCategory> categories = (List<BookCategory>) request.getAttribute("categories");
     List<Binding> bindings = (List<Binding>) request.getAttribute("bindings");
     List<Shelf> shelves = (List<Shelf>) request.getAttribute("shelves");

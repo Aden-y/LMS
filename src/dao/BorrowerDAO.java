@@ -65,6 +65,10 @@ public class BorrowerDAO {
     }
 
     public static void clear(int borrowerId) {
+        Borrower borrower = BorrowerDAO.get(borrowerId);
+        Book book = BookDAO.get(borrower.getBookId());
+        book.return$();
+        BookDAO.updateBorrowed(book);
         DatabaseAccess.executeUpdate("delete from Borrower where BorrowerId = "+borrowerId);
     }
 
@@ -77,6 +81,15 @@ public class BorrowerDAO {
 
     public static Borrower get(int borrowerId) {
         return create(DatabaseAccess.executeQuery("select * from Borrower where BorrowerId = "+borrowerId));
+    }
+
+    public static boolean hasBorrowed(int borrowerId, int ISBNCode) {
+        try {
+            return DatabaseAccess.executeQuery("select * from Borrower where BorrowerId = "+borrowerId +" and BookId = "+ISBNCode).next();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 
 

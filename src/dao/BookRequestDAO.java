@@ -46,11 +46,12 @@ public class BookRequestDAO {
 
     public static void create(BookRequest request) {
         String sql = "insert into BookRequest(BorrowerId, ISBNCode) values("+request.getBorrowerId()+", "+request.getISBNCode()+")";
+        System.out.println(sql);
         DatabaseAccess.executeUpdate(sql);
     }
 
-    public static BookRequest findByBorrowerId(int borrowerId) {
-        return create(DatabaseAccess.executeQuery("select * fro BookRequest where BorrowerId = "+borrowerId));
+    public static List<BookRequest> findByBorrowerId(int borrowerId) {
+        return createList(DatabaseAccess.executeQuery("select * from BookRequest where BorrowerId = "+borrowerId));
     }
 
     public static List<BookRequest>  all() {
@@ -82,5 +83,15 @@ public class BookRequestDAO {
 
     public static BookRequest get(int requestId) {
         return create(DatabaseAccess.executeQuery("select * from BookRequest where RequestId = "+requestId));
+    }
+
+
+    public static boolean isRequested(int ISBNCode, int borrowerId) {
+        try {
+            return  DatabaseAccess.executeQuery("select * from BookRequest where BorrowerId ="+borrowerId+" and ISBNCode = "+ISBNCode).next();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 }

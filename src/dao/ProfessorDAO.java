@@ -66,7 +66,7 @@ public class ProfessorDAO {
     }
 
     public static Professor login(String employmentId, String password) {
-        return create(DatabaseAccess.executeQuery("select * from Professor where EmploymentId = '"+employmentId+"', and Password = '"+password+"'"));
+        return create(DatabaseAccess.executeQuery("select * from Professor where EmploymentId = '"+employmentId+"' and Password = '"+password+"'"));
     }
 
     public static List<Professor> all() {
