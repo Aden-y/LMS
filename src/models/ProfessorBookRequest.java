@@ -1,11 +1,18 @@
 package models;
 
+import dao.BookDAO;
+
 public class ProfessorBookRequest {
     private int RequestId  , ISBNCode ;
     private String EmploymentId;
 
     public ProfessorBookRequest(int requestId, int ISBNCode, String employmentId) {
         RequestId = requestId;
+        this.ISBNCode = ISBNCode;
+        EmploymentId = employmentId;
+    }
+
+    public ProfessorBookRequest(int ISBNCode, String employmentId) {
         this.ISBNCode = ISBNCode;
         EmploymentId = employmentId;
     }
@@ -33,4 +40,10 @@ public class ProfessorBookRequest {
     public void setEmploymentId(String employmentId) {
         EmploymentId = employmentId;
     }
+
+    public  Book getBook() {
+        return BookDAO.get(ISBNCode);
+    }
+
+
 }

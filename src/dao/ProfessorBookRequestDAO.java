@@ -49,7 +49,7 @@ public class ProfessorBookRequestDAO {
         DatabaseAccess.executeUpdate(sql);
     }
 
-    public static List<ProfessorBookRequest> findByBorrowerId(int borrowerId) {
+    public static List<ProfessorBookRequest> findByBorrowerId(String borrowerId) {
         return createList(DatabaseAccess.executeQuery("select * from ProfessorBookRequest where EmploymentId = '"+borrowerId+"'"));
     }
 

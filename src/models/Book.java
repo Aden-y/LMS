@@ -1,8 +1,6 @@
 package models;
 
-import dao.BookRequestDAO;
-import dao.BorrowerDAO;
-import dao.ShelfDAO;
+import dao.*;
 
 public class Book {
     private  int ISBNCode, BindingId, CopiesActual, CopiesAvailable, CategoryId, PublicationYear, ShelfId ;
@@ -157,6 +155,12 @@ public class Book {
     public boolean canRequest(int borrowerId) {
         return !BorrowerDAO.hasBorrowed(borrowerId, ISBNCode)
                 && !BookRequestDAO.isRequested(ISBNCode, borrowerId)
+                && CopiesAvailable > 0;
+    }
+
+    public boolean canRequest(String borrowerId) {
+        return !ProfessorBorrowDAO.hasBorrowed(borrowerId, ISBNCode)
+                && !ProfessorBookRequestDAO.isRequested(ISBNCode, borrowerId)
                 && CopiesAvailable > 0;
     }
 }

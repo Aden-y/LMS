@@ -111,11 +111,23 @@
                 </td>
                 <%
                     } else if (user instanceof Professor){
+                        Professor professor = (Professor) user;
                 %>
                 <td>
                     <form action="books" method="post">
                         <input name="ISBNCode" value="<%=book.getISBNCode()%>" hidden>
+
+                        <%
+                            if (book.canRequest(professor.getEmploymentId())) {
+                        %>
                         <input type="submit" name="ProfessorRequestBook" class="btn-small pink darken-4" value="Request">
+                        <%
+                        }else{
+                        %>
+                        <input disabled type="submit" name="ProfessorRequestBook" class="btn-small pink darken-4" value="Request">
+                        <%
+                            }
+                        %>
                     </form>
                 </td>
                 <%

@@ -1,10 +1,9 @@
 package controllers;
 
-import dao.BookCategoryDAO;
-import dao.BookDAO;
-import dao.BookRequestDAO;
-import dao.CampusDAO;
+import dao.*;
 import models.BookRequest;
+import models.Professor;
+import models.ProfessorBookRequest;
 import models.Student;
 
 import javax.servlet.ServletException;
@@ -22,6 +21,15 @@ public class Books extends HttpServlet {
             int ISBNCode = Integer.parseInt(request.getParameter("ISBNCode"));
             BookRequest bookRequest = new BookRequest(student.getBorrowerId(), ISBNCode);
             BookRequestDAO.create(bookRequest);
+            response.sendRedirect("books");
+            return;
+        }
+
+        if (request.getParameter("ProfessorRequestBook") != null) {
+            Professor professor = (Professor) request.getSession().getAttribute("user");
+            int ISBNCode = Integer.parseInt(request.getParameter("ISBNCode"));
+            ProfessorBookRequest bookRequest = new ProfessorBookRequest(ISBNCode, professor.getEmploymentId());
+            ProfessorBookRequestDAO.create(bookRequest);
             response.sendRedirect("books");
             return;
         }

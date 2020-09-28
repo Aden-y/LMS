@@ -1,5 +1,6 @@
 package models;
 
+import dao.BookDAO;
 import services.DateService;
 
 import java.sql.Date;
@@ -73,5 +74,9 @@ public class ProfessorBorrow {
 
     public String getBorrowedFromString() {
         return DateService.toString(BorrowedFrom);
+    }
+
+    public Book getBook() {
+        return BookDAO.get(BookId);
     }
 }
