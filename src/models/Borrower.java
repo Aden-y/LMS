@@ -1,6 +1,8 @@
 package models;
 
 import dao.BookDAO;
+import dao.StaffDAO;
+import dao.StudentDAO;
 import services.DateService;
 
 import java.sql.Date;
@@ -97,5 +99,11 @@ public class Borrower {
         return DateService.toString(BorrowedTo);
     }
 
+    public Student getStudent() {
+        return StudentDAO.findByBorrowerId(BorrowerId);
+    }
 
+    public Staff getStaffIssuer() {
+        return StaffDAO.get(Issuer);
+    }
 }

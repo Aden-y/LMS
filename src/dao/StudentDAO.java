@@ -101,4 +101,8 @@ public class StudentDAO {
     public static List<Student> all() {
         return createList(DatabaseAccess.executeQuery("select * from Student"));
     }
+
+    public static Student findByBorrowerId(int borrowerId) {
+        return create(DatabaseAccess.executeQuery("select * from  Student where BorrowerId = "+borrowerId));
+    }
 }

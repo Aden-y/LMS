@@ -71,4 +71,8 @@ public class StaffDAO {
     public static List<Staff> all() {
         return createList(DatabaseAccess.executeQuery("select * from Staff"));
     }
+
+    public static Staff get(int userId) {
+        return create(DatabaseAccess.executeQuery("select * from Staff where UserId = "+userId));
+    }
 }

@@ -7,34 +7,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4a8d7123-66f5-4b4b-92f7-4c79d9dddbf6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/controllers/Logout.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controllers/Profile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controllers/ReceiveBook.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/profile.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/receive-book.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/WEB-INF/classes/controllers/Books.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/WEB-INF/classes/controllers/Books.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/WEB-INF/classes/controllers/ProfessorDashboard.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/WEB-INF/classes/controllers/ProfessorDashboard.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/WEB-INF/classes/controllers/StaffDashboard.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/WEB-INF/classes/controllers/StaffDashboard.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/WEB-INF/classes/dao/ProfessorBookRequestDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/WEB-INF/classes/dao/ProfessorBookRequestDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/WEB-INF/classes/models/Book.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/WEB-INF/classes/models/Book.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/WEB-INF/classes/models/ProfessorBookRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/WEB-INF/classes/models/ProfessorBookRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/WEB-INF/classes/dao/StaffDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/WEB-INF/classes/dao/StaffDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/WEB-INF/classes/dao/StudentDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/WEB-INF/classes/dao/StudentDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/WEB-INF/classes/models/Borrower.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/WEB-INF/classes/models/Borrower.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/WEB-INF/classes/models/ProfessorBorrow.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/WEB-INF/classes/models/ProfessorBorrow.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/books.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/books.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/professor.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/professor.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/staff.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/staff.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LMS/controllers/Books.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LMS/controllers/Books.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LMS/controllers/ProfessorDashboard.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LMS/controllers/ProfessorDashboard.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LMS/controllers/StaffDashboard.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LMS/controllers/StaffDashboard.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LMS/dao/ProfessorBookRequestDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LMS/dao/ProfessorBookRequestDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LMS/models/Book.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LMS/models/Book.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LMS/models/ProfessorBookRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LMS/models/ProfessorBookRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/assets/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/templates/nav.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/templates/nav.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LMS/dao/StaffDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LMS/dao/StaffDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LMS/dao/StudentDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LMS/dao/StudentDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LMS/models/Borrower.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LMS/models/Borrower.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/LMS/models/ProfessorBorrow.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LMS/models/ProfessorBorrow.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/Books.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/Books.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/ProfessorDashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/ProfessorDashboard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/StaffDashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/StaffDashboard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/ProfessorBookRequestDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/ProfessorBookRequestDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Book.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/ProfessorBookRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/ProfessorBookRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/StaffDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/StaffDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/StudentDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/StudentDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Borrower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Borrower.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/ProfessorBorrow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/ProfessorBorrow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/books.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/books.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/professor.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/professor.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/staff.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/staff.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/assets/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/templates/nav.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/templates/nav.jsp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -50,8 +44,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Jsp File" />
         <option value="Class" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -213,6 +207,7 @@
       <workItem from="1601231713408" duration="4478000" />
       <workItem from="1601273402612" duration="1396000" />
       <workItem from="1601315458670" duration="20339000" />
+      <workItem from="1601363585378" duration="15771000" />
     </task>
     <servers />
   </component>

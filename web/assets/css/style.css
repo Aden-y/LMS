@@ -67,3 +67,7 @@ body, html{
     visibility: hidden ;
     position: absolute;
 }
+.nav-icon{
+    height: 100%;
+    width: 50px;
+}

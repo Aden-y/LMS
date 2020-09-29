@@ -1,6 +1,8 @@
 package models;
 
 import dao.BookDAO;
+import dao.ProfessorDAO;
+import dao.StaffDAO;
 import services.DateService;
 
 import java.sql.Date;
@@ -78,5 +80,13 @@ public class ProfessorBorrow {
 
     public Book getBook() {
         return BookDAO.get(BookId);
+    }
+
+    public Professor getProfessor() {
+        return ProfessorDAO.get(EmploymentId);
+    }
+
+    public Staff getStaffIssuer() {
+        return StaffDAO.get(Issuer);
     }
 }
