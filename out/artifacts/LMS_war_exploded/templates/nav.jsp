@@ -9,7 +9,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <nav class="pink darken-4" role="navigation">
-    <div class="nav-wrapper container">
+    <div class="nav-wrapper">
         <a id="logo-container" href="#" class="brand-logo">LMS</a>
         <ul class="right hide-on-med-and-down">
             <%
@@ -26,6 +26,30 @@
             <li><a href="staff">Home</a></li>
             <li><a class='dropdown-trigger' href='#' data-target='manage-books'>Manage books<i class="material-icons right">arrow_drop_down</i></a></li>
             <li><a href="receive-book">Receive Book</a></li>
+
+            <%
+                if (staff.isAdmin()) {
+            %>
+
+            <li>
+                <a class='dropdown-trigger'href='#' data-target='manage-users'>Manage users
+                    <i class="material-icons right">arrow_drop_down</i>
+                </a>
+            </li>
+            <li><a href="campuses">Campuses</a></li>
+
+            <ul id='manage-users' class='dropdown-content'>
+                <li><a href="register-staff">Add staff</a></li>
+                <li><a href="register-student">Add Student</a></li>
+                <li><a href="register-professor">Add Professor</a></li>
+                <li><a href="users">View Staff</a></li>
+                <li><a href="students">View Students</a></li>
+                <li><a href="professors">View Professors</a></li>
+            </ul>
+            <%
+                }
+            %>
+
             <li>
                 <a href="#" class="dropdown-trigger" data-target="profile-dropdown">
                     <i class="valign-wrapper">
@@ -134,12 +158,36 @@
                     </i>
                 </a>
             </li>
+
             <ul id='manage-books1' class='dropdown-content'>
                 <li><a href="new-book">Add book</a></li>
                 <li><a href="new-e-book">Add e-book</a></li>
                 <li><a href="books">View books</a></li>
                 <li><a href="e-books">View e-books</a></li>
             </ul>
+
+            <%
+                if (staff.isAdmin()) {
+            %>
+
+            <li>
+                <a class='dropdown-trigger'href='#' data-target='manage-users1'>Manage users
+                     <i class="material-icons right">arrow_drop_down</i>
+                 </a>
+            </li>
+            <li><a href="campuses">Campuses</a></li>
+
+            <ul id='manage-users1' class='dropdown-content'>
+                <li><a href="register-staff">Add staff</a></li>
+                <li><a href="register-student">Add Student</a></li>
+                <li><a href="register-professor">Add Professor</a></li>
+                <li><a href="users">View Staff</a></li>
+                <li><a href="students">View Students</a></li>
+                <li><a href="professors">View Professors</a></li>
+            </ul>
+            <%
+                }
+            %>
 
             <ul id='profile-dropdown1' class='dropdown-content'>
                 <li><a href="profile">Profile</a></li>

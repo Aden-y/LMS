@@ -62,17 +62,28 @@
 
             <tbody>
             <%
-                for (Staff user: users) {
+                for (Staff staff: users) {
             %>
             <tr>
-                <td><%=user.getUserId()%></td>
-                <td><%=user%></td>
-                <td><%=user.getCampus()%></td>
+                <td><%=staff.getUserId()%></td>
+                <td><%=staff%></td>
+                <td><%=staff.getCampus()%></td>
                 <td>
                     <form action="users" method="post">
-                        <input type="text" name="UserId" value="<%=user.getUserId()%>" hidden>
-                        <input type="submit" class="btn-small pink darken-4" name="DeleteStaff" value="Delete">
+                        <input type="text" name="UserId" value="<%=staff.getUserId()%>" hidden>
+                        <input type="submit" class="btn-small red darken-4" name="DeleteStaff" value="Delete">
                     </form>
+
+                    <%
+                        if (!staff.isAdmin()) {
+                    %>
+                    <form action="users" method="post">
+                        <input type="text" name="UserId" value="<%=staff.getUserId()%>" hidden>
+                        <input type="submit" class="btn-small pink darken-4" name="MakeAdmin" value="Make Admin">
+                    </form>
+                    <%
+                        }
+                    %>
                 </td>
             </tr>
             <%

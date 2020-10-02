@@ -72,4 +72,9 @@ public class ProfessorDAO {
     public static List<Professor> all() {
         return createList(DatabaseAccess.executeQuery("select * from Professor"));
     }
+
+    public static void updateProfile(Professor professor) {
+        String sql ="update Professor set Email ='"+professor.getEmail()+"', Phone = '"+professor.getPhone()+"' Password = '"+professor.getPassword()+"' where EmploymentId ="+professor.getEmploymentId();
+        DatabaseAccess.executeUpdate(sql);
+    }
 }

@@ -13,7 +13,7 @@
 <body>
 <%
     Object user = session.getAttribute("user");
-    if (user == null || !(user instanceof Staff) || ((Staff) user).isAdmin()) {
+    if (user == null || !(user instanceof Staff) || !((Staff) user).isAdmin()) {
         session.invalidate();
         response.sendRedirect("index.jsp");
         return;

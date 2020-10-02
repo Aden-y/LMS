@@ -57,18 +57,19 @@
                 </thead>
 
                 <tbody>
-                <tr>
+
                     <%
                         for (Shelf shelf: shelves) {
                     %>
+                    <tr>
                     <td><%=shelf.getShelfNo()%></td>
                     <td><%=shelf.getFloorNo()%></td>
                     <td><%=shelf.campusName()%></td>
                     <td><%=shelf.booksCount()%></td>
+                </tr>
                     <%
                         }
                     %>
-                </tr>
 
                 </tbody>
             </table>

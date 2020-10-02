@@ -105,4 +105,9 @@ public class StudentDAO {
     public static Student findByBorrowerId(int borrowerId) {
         return create(DatabaseAccess.executeQuery("select * from  Student where BorrowerId = "+borrowerId));
     }
+
+    public static void updateProfile(Student student) {
+        String sql ="update Student set Email ='"+student.getEmail()+"', Phone = '"+student.getPhone()+"' Password = '"+student.getPassword()+"' where StudentNumber ="+student.getStudentNumber();
+        DatabaseAccess.executeUpdate(sql);
+    }
 }

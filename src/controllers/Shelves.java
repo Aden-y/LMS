@@ -22,6 +22,7 @@ public class Shelves extends HttpServlet {
                     floorNo = Integer.parseInt(request.getParameter("FloorNo"));
             ShelfDAO.create(new Shelf(shelfNo, floorNo, campusNo));
             response.sendRedirect("shelves");
+            return;
         }
     }
 
