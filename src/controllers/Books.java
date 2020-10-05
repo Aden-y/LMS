@@ -39,6 +39,32 @@ public class Books extends HttpServlet {
             request.getRequestDispatcher("edit-book.jsp").forward(request, response);
             return;
         }
+
+        if (request.getParameter("CampusFilter") != null) {
+            try {
+                int campusId = Integer.parseInt(request.getParameter("CampusIdFilter"));
+                request.setAttribute("books", BookDAO.findByCampus(campusId));
+                request.setAttribute("campuses", CampusDAO.all());
+                request.setAttribute("categories", BookCategoryDAO.all());
+                request.getRequestDispatcher("books.jsp").forward(request, response);
+            }catch (Exception e) {
+                response.sendRedirect("books");
+            }
+            return;
+        }
+
+        if (request.getParameter("CategoryFilter") != null) {
+            try {
+                int campusId = Integer.parseInt(request.getParameter("CategoryIdFilter"));
+                request.setAttribute("books", BookDAO.findByCategory(campusId));
+                request.setAttribute("campuses", CampusDAO.all());
+                request.setAttribute("categories", BookCategoryDAO.all());
+                request.getRequestDispatcher("books.jsp").forward(request, response);
+            }catch (Exception e) {
+                response.sendRedirect("books");
+            }
+            return;
+        }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

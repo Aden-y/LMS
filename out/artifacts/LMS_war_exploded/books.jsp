@@ -31,30 +31,36 @@
     <h4 class="title center color-primary">Library Books</h4>
     <div class="row">
         <div class="input-field col l4 s12 m4">
-            <select>
-                <option value="" disabled selected>Select Campus</option>
-                <%
-                    for (Campus campus : campuses) {
-                %>
-                <option value="<%=campus.getCampusNo()%>"><%=campus.getCampusName()%></option>
-                <%
-                    }
-                %>
-            </select>
-            <label>Filter by  campus</label>
+            <form action="students" method="post">
+                <select name="CampusIdFilter" id="CampusIdFilter">
+                    <option value="" disabled selected>Select Campus</option>
+                    <%
+                        for (Campus campus: campuses) {
+                    %>
+                    <option value="<%=campus.getCampusNo()%>"><%=campus%></option>
+                    <%
+                        }
+                    %>
+                </select>
+                <label>Filter by  campus</label>
+                <input type="submit" name="CampusFilter" hidden id="CampusFilter">
+            </form>
         </div>
         <div class="input-field col l4 s12 m4">
-            <select>
-                <option value="" disabled selected>Choose category</option>
-                <%
-                    for (BookCategory category: categories) {
-                %>
-                <option value="<%=category.getCategoryId()%>"><%=category.getCategoryName()%></option>
-                <%
-                    }
-                %>
-            </select>
-            <label>Filter by category</label>
+            <form action="students" method="post">
+                <select name="CategoryIdFilter" id="CategoryIdFilter">
+                    <option value="" disabled selected>Select category</option>
+                    <%
+                        for (BookCategory category: categories) {
+                    %>
+                    <option value="<%=category.getCategoryId()%>"><%=category.getCategoryName()%></option>
+                    <%
+                        }
+                    %>
+                </select>
+                <label>Filter by  category</label>
+                <input type="submit" name="CategoryFilter" hidden id="CategoryFilter">
+            </form>
         </div>
         <div class="input-field col l4 s12 m4">
             <form method="post" action="books">
@@ -181,6 +187,13 @@
 
     $('#search').keydown(function (e) {
         searchByTitle(this.value).toLocaleLowerCase();
+    })
+
+    $('#CampusIdFilter').change(function (e) {
+        document.getElementById('CampusFilter').click();
+    })
+    $('#CategoryIdFilter').change(function (e) {
+        document.getElementById('CategoryFilter').click();
     })
 </script>
 </html>

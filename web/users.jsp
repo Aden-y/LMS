@@ -32,20 +32,23 @@
     <h4 class="title color-primary">System Users (Staff)</h4>
     <div class="row">
         <div class="input-field col s8">
-            <select>
-                <option value="" disabled selected>Select Campus</option>
-                <%
-                    for (Campus campus: campuses) {
-                %>
-                <option value="<%=campus.getCampusNo()%>"><%=campus%></option>
-                <%
-                    }
-                %>
-            </select>
-            <label>Filter by  campus</label>
+            <form action="users" method="post">
+                <select name="CampusIdFilter" id="CampusIdFilter">
+                    <option value="" disabled selected>Select Campus</option>
+                    <%
+                        for (Campus campus: campuses) {
+                    %>
+                    <option value="<%=campus.getCampusNo()%>"><%=campus%></option>
+                    <%
+                        }
+                    %>
+                </select>
+                <label>Filter by  campus</label>
+                <input type="submit" name="CampusFilter" hidden id="CampusFilter">
+            </form>
         </div>
         <div class="input-field col s4">
-                <input type="search" placeholder="Search by name">
+                <input type="search" placeholder="Search by name" id="search">
         </div>
 
     </div>
@@ -64,9 +67,9 @@
             <%
                 for (Staff staff: users) {
             %>
-            <tr>
+            <tr class="staff-row">
                 <td><%=staff.getUserId()%></td>
-                <td><%=staff%></td>
+                <td class="staff-name"><%=staff%></td>
                 <td><%=staff.getCampus()%></td>
                 <td>
                     <form action="users" method="post">
@@ -99,5 +102,29 @@
     $(document).ready(function(){
         $('select').formSelect();
     });
+    $('#CampusIdFilter').change(function (e) {
+        document.getElementById('CampusFilter').click();
+    })
+
+    function searchByName(word) {
+        $('.staff-row').each(function () {
+            var tr = $(this);
+            var td =  tr.find('.staff-name');
+            var title = td.text().toLocaleLowerCase();
+            if (title.includes(word)) {
+                tr.removeClass('d-none');
+            }else {
+                tr.addClass('d-none')
+            }
+        })
+    }
+
+    $('#search').keyup(function (e) {
+        searchByName(this.value).toLocaleLowerCase();
+    })
+
+    $('#search').keydown(function (e) {
+        searchByName(this.value).toLocaleLowerCase();
+    })
 </script>
 </html>

@@ -32,17 +32,21 @@
     <h4 class="title color-primary">Students</h4>
     <div class="row">
         <div class="input-field col s8">
-            <select>
-                <option value="" disabled selected>Select Campus</option>
-                <%
-                    for (Campus campus: campuses) {
-                %>
-                <option value="<%=campus.getCampusNo()%>"><%=campus%></option>
-                <%
-                    }
-                %>
-            </select>
-            <label>Filter by  campus</label>
+           <form action="students" method="post">
+               <select name="CampusIdFilter" id="CampusIdFilter">
+                   <option value="" disabled selected>Select Campus</option>
+                   <%
+                       for (Campus campus: campuses) {
+                   %>
+                   <option value="<%=campus.getCampusNo()%>"><%=campus%></option>
+                   <%
+                       }
+                   %>
+               </select>
+               <label>Filter by  campus</label>
+               <input type="submit" name="CampusFilter" hidden id="CampusFilter">
+           </form>
+
         </div>
         <div class="input-field col s4">
             <input type="search" placeholder="Search by name" id="search">
@@ -102,6 +106,10 @@
 
     $('#search').keydown(function (e) {
         searchByName(this.value).toLocaleLowerCase();
+    })
+
+    $('#CampusIdFilter').change(function (e) {
+        document.getElementById('CampusFilter').click();
     })
 </script>
 </html>

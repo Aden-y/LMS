@@ -13,7 +13,16 @@ import java.io.IOException;
 @WebServlet(name = "Students", urlPatterns = {"/students"})
 public class Students extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        if (request.getParameter("CampusFilter") != null) {
+            try {
+                int campusId = Integer.parseInt(request.getParameter("CampusIdFilter"));
+                request.setAttribute("students", StudentDAO.findByCampus(campusId));
+                request.setAttribute("campuses", CampusDAO.all());
+                request.getRequestDispatcher("students.jsp").forward(request, response);
+            }catch (Exception e) {
+                response.sendRedirect("students");
+            }
+        }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
