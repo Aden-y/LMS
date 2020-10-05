@@ -45,7 +45,7 @@
             <label>Filter by  campus</label>
         </div>
         <div class="input-field col s4">
-            <input type="search" placeholder="Search by name">
+            <input type="search" placeholder="Search by name" id="search">
         </div>
 
     </div>
@@ -64,9 +64,9 @@
             <%
                 for (Student student: students) {
             %>
-            <tr>
+            <tr class="student-row">
                 <td><%=student.getStudentNumber()%></td>
-                <td><%=student%></td>
+                <td class="student-name"><%=student%></td>
                 <td><%=student.getDateOfBirthString()%></td>
                 <td><%=student.getCampus()%></td>
             </tr>
@@ -82,6 +82,27 @@
     $(document).ready(function(){
         $('select').formSelect();
     });
+
+    function searchByName(word) {
+        $('.student-row').each(function () {
+            var tr = $(this);
+            var td =  tr.find('.student-name');
+            var title = td.text().toLocaleLowerCase();
+            if (title.includes(word)) {
+                tr.removeClass('d-none');
+            }else {
+                tr.addClass('d-none')
+            }
+        })
+    }
+
+    $('#search').keyup(function (e) {
+        searchByName(this.value).toLocaleLowerCase();
+    })
+
+    $('#search').keydown(function (e) {
+        searchByName(this.value).toLocaleLowerCase();
+    })
 </script>
 </html>
 

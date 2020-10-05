@@ -11,16 +11,14 @@
 <jsp:include page="templates/header.html"/>
 <%
     Object user = session.getAttribute("user");
-    if (user == null) {
-        session.invalidate();
-        response.sendRedirect("index.jsp");
-        return;
-    }
+//    if (user == null) {
+//        session.invalidate();
+//        response.sendRedirect("index.jsp");
+//        return;
+//    }
     List<Book> books = (List<Book>) request.getAttribute("books");
     List<BookCategory> categories = (List<BookCategory>) request.getAttribute("categories");
     List<Campus> campuses = (List<Campus>) request.getAttribute("campuses");
-
-
 
     if (books == null || campuses == null || categories == null) {
         response.sendRedirect("books");
@@ -30,7 +28,7 @@
 <body>
     <jsp:include page="templates/nav.jsp"/>
 <div class="p-2">
-    <h4 class="title color-primary">Library Books</h4>
+    <h4 class="title center color-primary">Library Books</h4>
     <div class="row">
         <div class="input-field col l4 s12 m4">
             <select>
@@ -60,7 +58,7 @@
         </div>
         <div class="input-field col l4 s12 m4">
             <form method="post" action="books">
-                <input type="search" placeholder="Search by title">
+                <input type="search" placeholder="Search by title" id="search">
             </form>
         </div>
     </div>
@@ -73,7 +71,13 @@
                 <th>Actual Copies</th>
                 <th>Copies Available</th>
                 <th>Shelf</th>
+                <%
+                    if (user != null) {
+                %>
                 <th>Action</th>
+                <%
+                    }
+                %>
             </tr>
             </thead>
 
@@ -81,9 +85,11 @@
             <%
                 for (Book book : books) {
             %>
-            <tr>
+            <tr class="book-row">
                 <td><%=book.getISBNCode()%></td>
-                <td><%=book.getTitle()%></td>
+                <td class="book-title">
+                    <%=book.getTitle()%>
+                </td>
                 <td><%=book.getCopiesActual()%></td>
                 <td><%=book.getCopiesAvailable()%></td>
                 <td><%=book.getShelf()%></td>
@@ -155,5 +161,26 @@
     $(document).ready(function(){
         $('select').formSelect();
     });
+    
+    function searchByTitle(word) {
+        $('.book-row').each(function () {
+            var tr = $(this);
+            var td =  tr.find('.book-title');
+            var title = td.text().toLocaleLowerCase();
+            if (title.includes(word)) {
+                tr.removeClass('d-none');
+            }else {
+                tr.addClass('d-none')
+            }
+        })
+    }
+
+    $('#search').keyup(function (e) {
+        searchByTitle(this.value).toLocaleLowerCase();
+    })
+
+    $('#search').keydown(function (e) {
+        searchByTitle(this.value).toLocaleLowerCase();
+    })
 </script>
 </html>

@@ -25,7 +25,7 @@
 <jsp:include page="templates/nav.jsp"/>
 <div class="p-2">
     <h4 class="title color-primary center">Manage Profile</h4>
-    <form action="profile" method="post">
+    <form action="profile" method="post" onsubmit="return validate(this)">
         <diV class="row">
             <div class="col s12 m4 l4">
                 <div class="card center p-2">
@@ -99,12 +99,12 @@
                     %>
 
                     <div class="input-field col s12 m6 l6">
-                        <input type="email" name="Email" value="<%=professor.getEmail()%>" id="Email">
+                        <input type="email" name="Email" value="<%=professor.getEmail()%>"  requiredid="Email">
                         <label for="Email">Email Address</label>
                     </div>
 
                     <div class="input-field col s12 m6 l6">
-                        <input type="tel" name="Phone" value="<%=professor.getPhone()%>" id="Phone">
+                        <input type="tel" name="Phone" value="<%=professor.getPhone()%>"  requiredid="Phone">
                         <label for="Phone">Phone Number</label>
                     </div>
                     <%
@@ -119,10 +119,10 @@
                         <label for="ConfirmNewPassword">Confirm New Password</label>
                     </div>
 
-                    <div class="col s12  input-field">
-                        <input type="password" name="CurrentPassword" id="CurrentPassword">
-                        <label for="CurrentPassword">Enter current password to save the changes</label>
-                    </div>
+<%--                    <div class="col s12  input-field">--%>
+<%--                        <input type="password" name="CurrentPassword" id="CurrentPassword" required>--%>
+<%--                        <label for="CurrentPassword">Enter current password to save the changes</label>--%>
+<%--                    </div>--%>
 
                     <input type="submit" class="btn pink darken-4" name="UpdateProfile" value="Save Changes">
                 </div>
@@ -130,6 +130,21 @@
         </diV>
     </form>
 </div>
+<script>
+    function validate(form) {
+        if (form.NewPassword.value != '' || form.ConfirmNewPassword.value != '') {
+            if (form.NewPassword.value.length < 6){
+                alert('Password must be 6 characters or more');
+                return false;
+            }
 
+            if (form.NewPassword.value != form.ConfirmNewPassword.value) {
+                alert('Passwords do not match');
+                return false;
+            }
+        }
+        return true;
+    }
+</script>
 </body>
 </html>

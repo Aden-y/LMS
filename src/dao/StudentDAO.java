@@ -68,8 +68,8 @@ public class StudentDAO {
         sql+="'"+student.getPassword()+"', ";
         sql+="'"+student.getDateOfBirthString()+"', ";
         sql+=student.getCampusNo()+")";
+        System.out.println(sql);
         DatabaseAccess.executeUpdate(sql);
-
     }
 
     public static void update(Student student) {
@@ -107,7 +107,11 @@ public class StudentDAO {
     }
 
     public static void updateProfile(Student student) {
-        String sql ="update Student set Email ='"+student.getEmail()+"', Phone = '"+student.getPhone()+"' Password = '"+student.getPassword()+"' where StudentNumber ="+student.getStudentNumber();
+        String sql ="update Student set Email ='"+student.getEmail()+"', Phone = '"+student.getPhone()+"', Password = '"+student.getPassword()+"' where StudentNumber ='"+student.getStudentNumber()+"'";
         DatabaseAccess.executeUpdate(sql);
+    }
+
+    public static Student findByEmail(String email) {
+        return create(DatabaseAccess.executeQuery("select * from Student where Email = '"+email+"'"));
     }
 }

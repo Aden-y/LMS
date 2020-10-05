@@ -96,7 +96,7 @@
               </div>
               <br>
               <div>
-                <p class="center"><a href="reset-password">Forgot Password?</a></p>
+                <p class="center"><a href="reset-password.jsp">Forgot Password?</a></p>
               </div>
           </div>
         </div>

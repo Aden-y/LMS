@@ -19,6 +19,7 @@
             <form action="receive-book" method="post">
                 <div class="input-field">
                     <input type="text" name="BorrowerId" required id="BorrowerId" class="validate">
+                    <label for="BorrowerId">Enter student's borrower ID</label>
                     <input placeholder="Enter Borrower Id" type="submit" class="btn-small pink darken-4" name="ReceiveFromStudent" value="From Student">
                 </div>
             </form>
@@ -28,6 +29,7 @@
             <form action="receive-book" method="post">
                 <div class="input-field">
                     <input type="text" name="EmploymentNo" required id="EmploymentNo" class="validate">
+                    <label for="EmploymentNo">Enter professors's Employment ID</label>
                     <input type="submit" placeholder="Enter Employment Number" class="btn-small pink darken-4" name="ReceiveFromProfessor" value="From Professor">
                 </div>
             </form>

@@ -17,7 +17,8 @@
                 if (user == null) {
             %>
             <li><a href="index.jsp">Home</a></li>
-            <li><a href="#">About</a></li>
+            <li><a href="books">Books</a></li>
+            <li><a href="help.jsp">Help</a></li>
             <li><a href="#">Contact</a></li>
             <%
                 } else if (user instanceof Staff) {

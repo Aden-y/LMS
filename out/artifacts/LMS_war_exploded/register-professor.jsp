@@ -19,14 +19,21 @@
 %>
 <jsp:include page="templates/nav.jsp"/>
 <div class="p-2">
-    <form action="register-professor" method="post">
+    <form action="register-professor" method="post" onsubmit="return validate(this)">
         <h4 class="title color-primary">Register Professor</h4>
         <div class="row">
             <%
                 if(request.getAttribute("message") != null) {
             %>
-            <div class="s12 alert blue darken-1 center">
+            <div class="s12 alert green darken-1 center">
                 <%=request.getAttribute("message")%>
+            </div>
+            <%
+                }
+                if (request.getAttribute("error") != null) {
+            %>
+            <div class="s12 alert red darken-1 center">
+                <%=request.getAttribute("error")%>
             </div>
             <%
                 }
@@ -71,5 +78,41 @@
     </form>
 </div>
 </body>
+<script>
+    function validate(form) {
+        if (form.EmploymentId.value.trim() === '') {
+            alert('Employment  number needed');
+            return false;
+        }
+
+        if (form.FirstName.value.trim() === '') {
+            alert('First name needed');
+            return false;
+        }
+        if (form.LastName.value.trim() === '') {
+            alert('Last name  needed');
+            return false;
+        }
+
+        if (form.EmploymentYear.value.trim().length !== 4 || isNaN(form.EmploymentYear.value)) {
+            alert('Enter a valid year of employment  ');
+            return false;
+        }
+
+        if (form.Phone.value.trim().length !== 10 || isNaN(form.Phone.value)) {
+            alert('Enter a valid phone number');
+            return false;
+        }
+
+
+        if (form.Department.value.trim() === '') {
+            alert('Please enter the department');
+            return false;
+        }
+
+        return true;
+
+    }
+</script>
 </html>
 

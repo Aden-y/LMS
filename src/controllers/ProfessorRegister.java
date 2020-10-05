@@ -23,14 +23,22 @@ public class ProfessorRegister extends HttpServlet {
                 department = request.getParameter("Department"),
                 password = PasswordGeneratorService.generate(6);
         int employmentYear = Integer.parseInt(request.getParameter("EmploymentYear"));
-        ProfessorDAO.create(new Professor( employmentId, firstName, lastName, phone, email, department, password, employmentYear));
-        String subject = "Professor registration at School Library System",
-                message = "You have been registered successfully as a Professor in the School Library System\n" +
-                        "Access the system with the following details.\n" +
-                        "Employment Number : "+employmentId+"\n" +
-                        "Password          :"+password;
-        //MailerService.sendMessage(email, subject, message);
-        request.setAttribute("message", "Professor registered successfully. Credentials emailed at "+email);
+
+        if (ProfessorDAO.findByEmail(email) != null) {
+            request.setAttribute("error", "Email has been used to register another professor");
+        }else if (ProfessorDAO.get(employmentId) != null) {
+            request.setAttribute("error", "Another professor has been registered wih the Employment Number");
+        }else {
+            ProfessorDAO.create(new Professor( employmentId, firstName, lastName, phone, email, department, password, employmentYear));
+            String subject = "Professor registration at School Library System",
+                    message = "You have been registered successfully as a Professor in the School Library System\n" +
+                            "Access the system with the following details.\n" +
+                            "Employment Number : "+employmentId+"\n" +
+                            "Password          :"+password;
+            MailerService.sendMessage(email, subject, message);
+            request.setAttribute("message", "Professor registered successfully. Credentials emailed at "+email);
+        }
+
         request.getRequestDispatcher("register-professor.jsp").forward(request, response);
     }
 

@@ -7,7 +7,7 @@ create table if not exists Student (
     FirstName varchar (50) not null ,
     LastName varchar (50) not null ,
     Phone varchar (15) not null ,
-    Email varchar (100) not null ,
+    Email varchar (100) not null unique key ,
     Sex varchar (20),
     DateOfBirth date not null ,
     BorrowerId int auto_increment unique key not null,
@@ -22,7 +22,7 @@ create table if not exists  Professor(
     FirstName varchar (50) not null ,
     LastName varchar (50) not null ,
     Phone varchar (50) not null ,
-    Email varchar (100) not null ,
+    Email varchar (100) not null unique key ,
     Department varchar(50) not null ,
     EmploymentYear int(4) not null ,
     Password varchar (50) not null
@@ -33,7 +33,7 @@ create table if not exists Staff (
     FirstName varchar (50) not null ,
     LastName varchar (50) not null ,
     Phone varchar (50) not null ,
-    Email varchar (100) not null ,
+    Email varchar (100) not null unique key ,
     IsAdmin boolean default false not null ,
     CampusNo int not null ,
     Password varchar (50) not null,
@@ -129,4 +129,10 @@ create table if not exists ProfessorBorrow(
     foreign key (EmploymentId) references Professor(EmploymentId),
     foreign key (BookId) references Book(ISBNCode),
     foreign key (Issuer) references Staff(UserId)
+);
+
+create table if not exists PasswordResetToken(
+    User varchar(15) not null,
+    Token varchar(4) not null ,
+    Email varchar(100) not null
 );

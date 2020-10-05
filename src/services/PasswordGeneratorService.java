@@ -13,4 +13,9 @@ public class PasswordGeneratorService {
         }
         return password;
     }
+
+    public static  String generateCode() {
+        Random r = new Random();
+        return  String.format("%04d", (Object) Integer.valueOf(r.nextInt(1001)));
+    }
 }

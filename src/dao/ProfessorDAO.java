@@ -74,7 +74,11 @@ public class ProfessorDAO {
     }
 
     public static void updateProfile(Professor professor) {
-        String sql ="update Professor set Email ='"+professor.getEmail()+"', Phone = '"+professor.getPhone()+"' Password = '"+professor.getPassword()+"' where EmploymentId ="+professor.getEmploymentId();
+        String sql ="update Professor set Email ='"+professor.getEmail()+"', Phone = '"+professor.getPhone()+"', Password = '"+professor.getPassword()+"' where EmploymentId ="+professor.getEmploymentId();
         DatabaseAccess.executeUpdate(sql);
+    }
+
+    public static Professor findByEmail(String email) {
+        return create(DatabaseAccess.executeQuery("select * from Professor where Email = '"+email+"'"));
     }
 }

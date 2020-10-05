@@ -29,7 +29,7 @@
     <h4 class="title color-primary">Professors</h4>
     <div class="row">
         <div class="input-field col s12">
-            <input type="search" placeholder="Search by name">
+            <input type="search" placeholder="Search by name" id="search">
         </div>
 
     </div>
@@ -47,9 +47,9 @@
             <%
                 for (Professor professor: professors) {
             %>
-            <tr>
+            <tr class="prof-row">
                 <td><%=professor.getEmploymentId()%></td>
-                <td><%=professor%></td>
+                <td class="prof-name"><%=professor%></td>
                 <td><%=professor.getEmploymentYear()%></td>
             </tr>
             <%
@@ -59,6 +59,28 @@
         </table>
     </div>
 </div>
+<script>
+    function searchByName(word) {
+        $('.prof-row').each(function () {
+            var tr = $(this);
+            var td =  tr.find('.prof-name');
+            var title = td.text().toLocaleLowerCase();
+            if (title.includes(word)) {
+                tr.removeClass('d-none');
+            }else {
+                tr.addClass('d-none')
+            }
+        })
+    }
+
+    $('#search').keyup(function (e) {
+        searchByName(this.value).toLocaleLowerCase();
+    })
+
+    $('#search').keydown(function (e) {
+        searchByName(this.value).toLocaleLowerCase();
+    })
+</script>
 </body>
 </html>
 

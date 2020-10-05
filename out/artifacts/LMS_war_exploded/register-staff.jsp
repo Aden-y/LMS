@@ -28,13 +28,20 @@
 <jsp:include page="templates/nav.jsp"/>
 <div class="p-2">
     <h4 class="title color-primary">Register Staff (User)</h4>
-    <form method="post" action="register-staff">
+    <form method="post" action="register-staff" onsubmit="return validate(this)">
         <div class="row">
             <%
                 if(request.getAttribute("message") != null) {
             %>
-            <div class="s12 alert blue darken-1 center">
+            <div class="s12 alert green darken-1 center">
                 <%=request.getAttribute("message")%>
+            </div>
+            <%
+                }
+                if (request.getAttribute("error") != null) {
+            %>
+            <div class="s12 alert red darken-1 center">
+                <%=request.getAttribute("error")%>
             </div>
             <%
                 }
@@ -84,5 +91,26 @@
     $(document).ready(function(){
         $('select').formSelect();
     });
+
+    function validate(form) {
+        if (form.FirstName.value.trim() === '') {
+            alert('First name needed');
+            return false;
+        }
+        if (form.LastName.value.trim() === '') {
+            alert('Last name  needed');
+            return false;
+        }
+        if (form.Phone.value.trim().length !== 10 || isNaN(form.Phone.value)) {
+            alert('Enter a valid phone number');
+            return false;
+        }
+        if (form.CampusNo.value.trim() === null || form.CampusNo.value === '') {
+            alert('Select campus ');
+            return false;
+        }
+        return true;
+
+    }
 </script>
 </html>

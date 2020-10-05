@@ -77,7 +77,7 @@ public class StaffDAO {
     }
 
     public static void updateProfile(Staff staff) {
-        String sql ="update Staff set Email ='"+staff.getEmail()+"', Phone = '"+staff.getPhone()+"' Password = '"+staff.getPassword()+"' where UserId ="+staff.getUserId();
+        String sql ="update Staff set Email ='"+staff.getEmail()+"', Phone = '"+staff.getPhone()+"' ,Password = '"+staff.getPassword()+"' where UserId ="+staff.getUserId();
         DatabaseAccess.executeUpdate(sql);
     }
 
@@ -89,4 +89,9 @@ public class StaffDAO {
     public static void makeAdmin(int userId) {
         DatabaseAccess.executeUpdate("update Staff set IsAdmin = 1 where UserId = "+userId);
     }
+
+    public static Staff findByEmail(String email) {
+        return create(DatabaseAccess.executeQuery("select * from Staff where Email = '"+email+"'"));
+    }
+
 }
