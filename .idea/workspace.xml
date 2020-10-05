@@ -8,21 +8,9 @@
   <component name="ChangeListManager">
     <list default="true" id="4a8d7123-66f5-4b4b-92f7-4c79d9dddbf6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/WEB-INF/classes/controllers/Books.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/WEB-INF/classes/controllers/Books.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/WEB-INF/classes/controllers/Students.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/WEB-INF/classes/controllers/Students.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/WEB-INF/classes/controllers/Users.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/WEB-INF/classes/controllers/Users.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/books.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/books.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/students.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/students.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/users.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/LMS_war_exploded/users.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LMS/controllers/Books.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LMS/controllers/Books.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LMS/controllers/Students.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LMS/controllers/Students.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LMS/controllers/Users.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LMS/controllers/Users.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/Books.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/Books.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/Students.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/Students.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/Users.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/StudentRegister.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/StudentRegister.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/books.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/books.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/students.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/students.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/users.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/users.jsp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -219,7 +207,7 @@
       <workItem from="1601583853829" duration="1868000" />
       <workItem from="1601633808902" duration="5924000" />
       <workItem from="1601697257005" duration="601000" />
-      <workItem from="1601710709463" duration="33212000" />
+      <workItem from="1601710709463" duration="34427000" />
     </task>
     <servers />
   </component>

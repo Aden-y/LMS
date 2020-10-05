@@ -30,7 +30,7 @@ public class StudentRegister extends HttpServlet {
         int campusNo = Integer.parseInt(request.getParameter("CampusNo"));
         if (StudentDAO.get(studentNumber) != null) {
             request.setAttribute("error", "A student is already registered with the same Student Number");
-        }else if (StaffDAO.findByEmail(email) != null){
+        }else if (StudentDAO.findByEmail(email) != null){
             request.setAttribute("error", "A student is already registered with the same email");
         }else {
             StudentDAO.create(new Student( studentNumber, firstName, lastName, phone, email, sex, department, password, dateOfBirth, campusNo));
